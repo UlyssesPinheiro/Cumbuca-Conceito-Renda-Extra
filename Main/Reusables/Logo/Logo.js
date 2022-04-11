@@ -12,7 +12,6 @@ export default function Logo() {
 }
 
 const LogoStyled = styled.Image`
-  /* height: 50px;
-  position: absolute;
-  left: 0; */
+  height: 35px;
+  width: 35px;
 `;

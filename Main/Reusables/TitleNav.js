@@ -3,10 +3,19 @@ import styled from "styled-components";
 import { Font } from "../Defaults/Font";
 
 export default function TitleNav({ children }) {
-  return <TitleStyled>{children}</TitleStyled>;
+  return (
+    <TitleView>
+      <TitleStyled>{children}</TitleStyled>
+    </TitleView>
+  );
 }
 
 const TitleStyled = styled.Text`
-  font-size: ${Font.sizes[7]};
+  font-size: ${Font.sizes[7] + "px"};
   font-family: ${Font.family.bold};
+`;
+
+const TitleView = styled.View`
+  flex-direction: row;
+  align-self: flex-start;
 `;
