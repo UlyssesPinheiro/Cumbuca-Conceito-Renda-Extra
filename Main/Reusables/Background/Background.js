@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Background() {
-  return (
-    <ImgStyled source={require("../Reusables/Background.jpg")}></ImgStyled>
-  );
+export default function Background({ children }) {
+  return <ImgStyled source={require("./Background.jpg")}>{children}</ImgStyled>;
 }
 
 const ImgStyled = styled.ImageBackground`

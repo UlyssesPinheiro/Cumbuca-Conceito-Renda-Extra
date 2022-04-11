@@ -5,7 +5,20 @@ import store from "./Main/Store/redux";
 import Home from "./Main/Views/Home/Home";
 import styled from "styled-components";
 
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_700Bold,
+} from "@expo-google-fonts/inter";
+
 export default function App() {
+  let [fontsLoaded] = useFonts({ Inter_400Regular, Inter_700Bold });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <Provider store={store}>
       <ViewStyled>
