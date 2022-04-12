@@ -3,6 +3,7 @@
 export const Color = {
   primaryContainer: "#F5F5FF",
   secondaryContainer: "#EBEEFD", //ICON CONT.
+  secondaryContainerPressed: "#C8CCE3", //ICON CONT.
   backgroundFallback: "#81C9D2",
 
   gray9: "#212529",

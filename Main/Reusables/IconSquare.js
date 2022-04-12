@@ -8,7 +8,7 @@ import { Font } from "../Defaults/Font";
 export default function IconSquare({ name }) {
   return (
     <ViewStyled>
-      <Icon name={name} size={Font.sizes[7]} color={Color.black} />
+      <Icon name={name} size={Font.sizes[6]} color={Color.black} />
     </ViewStyled>
   );
 }

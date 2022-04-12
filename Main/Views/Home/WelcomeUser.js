@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function WelcomeUser() {
+  const [HideBalance, setHideBalance] = useState(false);
+
   return (
     <>
       <TitleView>
@@ -16,11 +18,15 @@ export default function WelcomeUser() {
       <SalesView>
         <SalesTitleView>
           <SalesTitle>Saldo das vendas</SalesTitle>
-          <IconContainer>
-            <Icon name="eye" size={Font.sizes[6]} color={Color.black} />
+          <IconContainer onPress={() => setHideBalance((e) => !e)}>
+            <Icon
+              name={HideBalance ? "eye-off" : "eye"}
+              size={Font.sizes[6]}
+              color={Color.black}
+            />
           </IconContainer>
         </SalesTitleView>
-        <SalesBalance>R$ 150,00</SalesBalance>
+        <SalesBalance>{HideBalance ? "••••" : "R$ 150,00"}</SalesBalance>
       </SalesView>
     </>
   );
@@ -71,7 +77,7 @@ const SalesTitle = styled.Text`
   color: ${Color.gray7};
 `;
 
-const IconContainer = styled.View`
+const IconContainer = styled.TouchableOpacity`
   background-color: ${Color.secondaryContainer};
   border-radius: 200px;
   padding: 7px;

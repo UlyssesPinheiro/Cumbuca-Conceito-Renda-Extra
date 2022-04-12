@@ -13,6 +13,7 @@ export default function MayAlsoLike() {
 
 const ViewStyled = styled.View`
   margin: ${MarginContainer};
+  margin-bottom: 10px;
   display: flex;
 `;
 const Title = styled.Text`
