@@ -9,8 +9,5 @@ export default function Nav({ children }) {
 }
 
 const ContainerStyled = styled(Container)`
-  padding: 30px 20px 20px;
-  border-radius: ${Border.radius};
-  box-shadow: 5px 10px ${Color.black};
-  elevation: 5;
+  padding: 40px 20px 20px;
 `;

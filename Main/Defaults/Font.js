@@ -12,6 +12,7 @@ export const Font = {
   sizes: [10, 12, 14, 16, 18, 20, 24, 30, 36, 44, 52, 62, 74, 86, 98],
   family: {
     regular: "Inter_400Regular",
+    medium: "Inter_500Medium",
     bold: "Inter_700Bold",
   },
 };
