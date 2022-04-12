@@ -4,12 +4,10 @@ import { StatusBar } from "expo-status-bar";
 import Home from "./Home/Home";
 import MyProducts from "./MyProducts/MyProducts";
 import { useSelector } from "react-redux";
-import Exit from "./Home/Exit/Exit";
+import Exit from "./Exit/Exit";
 
 export default function MainContainer() {
   const ActiveView = useSelector((state) => state.ActiveView.active);
-
-  console.log(ActiveView);
 
   return (
     <ViewStyled>

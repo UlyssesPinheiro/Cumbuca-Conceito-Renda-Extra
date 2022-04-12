@@ -11,7 +11,6 @@ export default function WelcomeUser() {
   const dispatch = useDispatch();
 
   const hidennBalance = useSelector((state) => state.UserConfig.hiddenBalance);
-  console.log(hidennBalance);
 
   function toggleHideBalanceHandler() {
     dispatch(UserConfig.actions.toggleHiddenBalance());
