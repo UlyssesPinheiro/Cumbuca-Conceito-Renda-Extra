@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Font } from "../Defaults/Font";
+import { Font } from "../../Defaults/Font";
 
 export default function TitleNav({ children }) {
   return (

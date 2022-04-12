@@ -1,26 +1,41 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Font } from "../../../Defaults/Font";
 import IconSquare from "../../../Reusables/IconSquare";
+import { ActiveView } from "../../../Store/ActiveViews";
 
 export default function MenuList() {
+  const dispatch = useDispatch();
+  const View = useSelector((state) => state.ActiveView.active);
+
+  function goToMyProducts() {
+    dispatch(ActiveView.actions.setView("MyProducts"));
+    console.log(View);
+  }
+  function exit() {
+    dispatch(ActiveView.actions.setView("Exit"));
+    console.log(View);
+  }
+
   return (
     <ListView>
-      <ListItemView>
+      <ListItem onPress={goToMyProducts}>
         <IconSquare name="user" />
         <ListText>Meus Produtos</ListText>
-      </ListItemView>
-      <ListItemView>
+      </ListItem>
+      <ListItem onPress={exit}>
         <IconSquare name="log-out" />
         <ListText>Sair</ListText>
-      </ListItemView>
+      </ListItem>
     </ListView>
   );
 }
 
 const ListView = styled.View``;
 
-const ListItemView = styled.View`
+const ListItem = styled.TouchableOpacity`
   margin: 15px 15px 0;
   display: flex;
   flex-direction: row;

@@ -1,9 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import store from "./Main/Store/redux";
-import Home from "./Main/Views/Home/Home";
-import styled from "styled-components";
 
 import AppLoading from "expo-app-loading";
 import {
@@ -12,6 +8,7 @@ import {
   Inter_500Medium,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
+import MainContainer from "./Main/Views/MainContainer";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -26,14 +23,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <ViewStyled>
-        <Home />
-        <StatusBar style="auto" />
-      </ViewStyled>
+      <MainContainer />
     </Provider>
   );
 }
-
-const ViewStyled = styled.View`
-  height: 100%;
-`;
