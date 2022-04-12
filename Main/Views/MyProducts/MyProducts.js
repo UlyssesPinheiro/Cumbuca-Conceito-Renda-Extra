@@ -35,6 +35,7 @@ export default function MyProducts() {
         </TopView>
         <SearchBar />
       </Nav>
+
       <List1PerLine />
     </Background>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Icon from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { TouchableOpacity } from "react-native";
 
 import Background from "../../Reusables/Background/Background";
 import Nav from "../../Reusables/Nav/Nav";
@@ -17,12 +18,19 @@ import MayAlsoLike from "./MayAlsoLike";
 import MenuList from "./MenuList/MenuList";
 import { TopView } from "../../Reusables/Nav/TopView";
 import { IconContainer } from "../../Reusables/Nav/IconContainer";
+import { useDispatch } from "react-redux";
+import { ActiveView } from "../../Store/ActiveViews";
 
 export default function Home() {
   const [MenuExpanded, setMenuExpanded] = useState(false);
+  const dispatch = useDispatch();
 
   function MenuExpandedHandler() {
     setMenuExpanded((e) => !e);
+  }
+
+  function addNewProductHandler() {
+    dispatch(ActiveView.actions.setView("NewProduct"));
   }
 
   const HomeItems = (
@@ -30,9 +38,13 @@ export default function Home() {
       <ContainerStyled>
         <WelcomeUser />
       </ContainerStyled>
-      <ContainerStyled>
-        <NewProduct />
-      </ContainerStyled>
+
+      <TouchableOpacity onPress={addNewProductHandler}>
+        <ContainerStyled>
+          <NewProduct />
+        </ContainerStyled>
+      </TouchableOpacity>
+
       <MayAlsoLike />
     </>
   );

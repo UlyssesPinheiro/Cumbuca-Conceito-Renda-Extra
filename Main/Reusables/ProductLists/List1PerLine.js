@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import MyProductCard from "./MyProductCard";
 import { useSelector } from "react-redux";
+import NewProductButton from "../../Views/MyProducts/NewProductButton";
 
 const numColumns = 1;
 
@@ -13,6 +14,7 @@ export default function List1PerLine() {
 
   return (
     <FlatListStyled
+      ListHeaderComponent={NewProductButton}
       data={UserProducts}
       renderItem={({ item }) => (
         <MyProductCard
@@ -32,5 +34,4 @@ export default function List1PerLine() {
 
 const FlatListStyled = styled.FlatList`
   padding-right: 15px;
-  padding-top: 30px;
 `;
