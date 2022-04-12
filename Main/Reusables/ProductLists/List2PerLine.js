@@ -3,26 +3,15 @@ import styled from "styled-components";
 import ProductCard from "./ProductCard";
 
 const numColumns = 2;
-const dummyProducts = [
-  { price: "R$ 50,00", name: "Nome do produto", key: 1 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 2 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 3 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 4 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 5 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 6 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 7 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 8 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 9 },
-  { price: "R$ 50,00", name: "Nome do produto", key: 10 },
-];
 
 export default function List2PerLine({ HeaderJSX }) {
   useEffect(() => {
     function loadItems() {
-      fetch("https://fakestoreapi.com/products?limit=20'")
+      fetch("https://fakestoreapi.com/products?limit=4'")
         .then((res) => res.json())
         .then((json) => {
-          return setProducts(json || dummyProducts);
+          if (!json) throw new Error("Missing JSON from API");
+          return setProducts(json);
         });
     }
     loadItems();
