@@ -12,11 +12,9 @@ export default function MenuList() {
 
   function goToMyProducts() {
     dispatch(ActiveView.actions.setView("MyProducts"));
-    console.log(View);
   }
   function exit() {
     dispatch(ActiveView.actions.setView("Exit"));
-    console.log(View);
   }
 
   return (

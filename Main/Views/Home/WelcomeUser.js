@@ -3,9 +3,19 @@ import styled from "styled-components";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
 import Icon from "react-native-vector-icons/Feather";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { UserConfig } from "../../Store/UserConfig";
 
 export default function WelcomeUser() {
-  const [HideBalance, setHideBalance] = useState(false);
+  const dispatch = useDispatch();
+
+  const hidennBalance = useSelector((state) => state.UserConfig.hiddenBalance);
+  console.log(hidennBalance);
+
+  function toggleHideBalanceHandler() {
+    dispatch(UserConfig.actions.toggleHiddenBalance());
+  }
 
   return (
     <>
@@ -18,15 +28,15 @@ export default function WelcomeUser() {
       <SalesView>
         <SalesTitleView>
           <SalesTitle>Saldo das vendas</SalesTitle>
-          <IconContainer onPress={() => setHideBalance((e) => !e)}>
+          <IconContainer onPress={toggleHideBalanceHandler}>
             <Icon
-              name={HideBalance ? "eye-off" : "eye"}
+              name={hidennBalance ? "eye-off" : "eye"}
               size={Font.sizes[6]}
               color={Color.black}
             />
           </IconContainer>
         </SalesTitleView>
-        <SalesBalance>{HideBalance ? "••••" : "R$ 150,00"}</SalesBalance>
+        <SalesBalance>{hidennBalance ? "••••" : "R$ 150,00"}</SalesBalance>
       </SalesView>
     </>
   );

@@ -11,6 +11,7 @@ import Logo from "../../Reusables/Logo/Logo";
 import SearchBar from "../../Reusables/SearchBar";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
+import List1PerLine from "../../Reusables/ProductLists/List1PerLine";
 
 export default function MyProducts() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function MyProducts() {
         </TopView>
         <SearchBar />
       </Nav>
+      <List1PerLine />
     </Background>
   );
 }
