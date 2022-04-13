@@ -8,7 +8,6 @@ import Form from "./Form/Form";
 import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
-import FilledButton from "../../Reusables/WideButtons/FilledButton";
 
 export default function NewProduct() {
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ export default function NewProduct() {
         <TitleNav>Anunciar Produto</TitleNav>
       </NavUncontained>
       <Form />
-      <FilledButton>Anunciar</FilledButton>
     </Background>
   );
 }

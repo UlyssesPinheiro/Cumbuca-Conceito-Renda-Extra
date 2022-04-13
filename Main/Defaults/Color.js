@@ -19,6 +19,7 @@ export const Color = {
 
   white: "#FFFFFF",
   black: "#000000", //BUTTONS
+  error: "#E03131",
 
   iconAccent: "#C8EDD0",
   userProfile: "#63DCB0",
