@@ -4,9 +4,9 @@ import { Border } from "../../Defaults/Border";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
 
-export default function LineButton({ children }) {
+export default function LineButton({ onPress, children }) {
   return (
-    <SignInButton>
+    <SignInButton onPress={onPress}>
       <ButtonText>{children}</ButtonText>
     </SignInButton>
   );

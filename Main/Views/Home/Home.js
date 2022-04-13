@@ -20,6 +20,7 @@ import { TopView } from "../../Reusables/Nav/TopView";
 import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
+import { Margins } from "../../Defaults/Margins";
 
 export default function Home() {
   const [MenuExpanded, setMenuExpanded] = useState(false);
@@ -73,7 +74,7 @@ export default function Home() {
 }
 
 const ContainerStyled = styled(Container)`
-  margin: 40px 15px 0;
+  margin: ${Margins.MarginContainer};
   margin-right: 0;
   padding: 20px 15px;
 `;

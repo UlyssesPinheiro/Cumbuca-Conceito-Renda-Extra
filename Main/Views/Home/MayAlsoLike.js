@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Font } from "../../Defaults/Font";
-import { MarginContainer } from "../../Defaults/MarginContainer";
+import { Margins } from "../../Defaults/Margins";
 
 export default function MayAlsoLike() {
   return (
@@ -12,7 +12,7 @@ export default function MayAlsoLike() {
 }
 
 const ViewStyled = styled.View`
-  margin: ${MarginContainer};
+  margin: ${Margins.MarginContainer};
   margin-bottom: 10px;
   display: flex;
 `;

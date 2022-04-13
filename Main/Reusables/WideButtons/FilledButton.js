@@ -5,7 +5,7 @@ import { Border } from "../../Defaults/Border";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
 
-export default function FilledButton({ onPress, children, disabled }) {
+export default function FilledButton({ style, onPress, children, disabled }) {
   const SignInView = styled.View`
     margin-left: auto;
     margin-right: auto;
@@ -21,7 +21,7 @@ export default function FilledButton({ onPress, children, disabled }) {
   return (
     <>
       {!disabled && (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity style={style} onPress={onPress}>
           <SignInView>
             <ButtonText>{children}</ButtonText>
           </SignInView>
@@ -29,7 +29,7 @@ export default function FilledButton({ onPress, children, disabled }) {
       )}
 
       {disabled && (
-        <SignInView>
+        <SignInView style={style}>
           <ButtonText>{children}</ButtonText>
         </SignInView>
       )}

@@ -9,6 +9,7 @@ import { Border } from "../../../Defaults/Border";
 import { Font } from "../../../Defaults/Font";
 import { useDispatch } from "react-redux";
 import { UserProducts } from "../../../Store/UserProducts";
+import { ActiveView } from "../../../Store/ActiveViews";
 
 export default function Form() {
   const dispatch = useDispatch();
@@ -83,7 +84,14 @@ export default function Form() {
   }
 
   function onSubmitHandler() {
-    if (data.isValidName && data.isValidPrice && data.isValidAmount) {
+    if (
+      data.name &&
+      data.price &&
+      data.amount &&
+      data.isValidName &&
+      data.isValidPrice &&
+      data.isValidAmount
+    ) {
       const exportData = {
         photos,
         title: data.name,
@@ -96,6 +104,7 @@ export default function Form() {
       console.log("data to save on state: ", exportData);
 
       dispatch(UserProducts.actions.addProduct(exportData));
+      dispatch(ActiveView.actions.setView("ProductAdded"));
     }
   }
 
