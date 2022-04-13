@@ -16,17 +16,20 @@ export default function List1PerLine() {
     <FlatListStyled
       ListHeaderComponent={NewProductButton}
       data={UserProducts}
-      renderItem={({ item }) => (
-        <MyProductCard
-          image={item.image}
-          name={
-            item.title.substring(0, 35) +
-            `${item.title.length > 35 ? "..." : ""}`
-          }
-          price={`R$ ${Number(item.price).toFixed(2)}`}
-          key={item.key}
-        ></MyProductCard>
-      )}
+      renderItem={({ item }) => {
+        return (
+          <MyProductCard
+            photo={item.photos ? item.photos[0] : ""}
+            name={
+              item.title.substring(0, 35) +
+              `${item.title.length > 35 ? "..." : ""}`
+            }
+            price={`R$ ${Number(item.price).toFixed(2)}`}
+            amount={item.amount}
+            key={item.key}
+          ></MyProductCard>
+        );
+      }}
       numColumns={numColumns}
     />
   );

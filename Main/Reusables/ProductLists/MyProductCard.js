@@ -6,10 +6,11 @@ import { Font } from "../../Defaults/Font";
 import Container from "../Container";
 import { ProductBoldText, ProductName } from "./BoldTextAndName";
 
-export default function MyProductCard({ name, price, amount = 1 }) {
+export default function MyProductCard({ photo, name, price, amount }) {
   return (
     <CardView>
-      <ImageView />
+      {photo && <ProductImage source={{ uri: photo }} />}
+      {!photo && <ImageMissing />}
       <TextView>
         <ProductBoldText>{price}</ProductBoldText>
         <ProductName>{name}</ProductName>
@@ -35,7 +36,11 @@ const CardView = styled(Container)`
   margin-left: 15px;
   overflow: hidden;
 `;
-const ImageView = styled.View`
+const ProductImage = styled.Image`
+  height: 100%;
+  width: 40%;
+`;
+const ImageMissing = styled.View`
   height: 100%;
   width: 40%;
   background-color: ${Color.gray5};

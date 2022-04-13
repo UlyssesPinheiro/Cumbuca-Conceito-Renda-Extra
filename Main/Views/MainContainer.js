@@ -6,6 +6,7 @@ import MyProducts from "./MyProducts/MyProducts";
 import { useSelector } from "react-redux";
 import Exit from "./Exit/Exit";
 import NewProduct from "./NewProduct/NewProduct";
+import TestingView from "./TestingView/TestingView";
 
 export default function MainContainer() {
   const ActiveView = useSelector((state) => state.ActiveView.active);
@@ -16,6 +17,7 @@ export default function MainContainer() {
       {ActiveView === "MyProducts" && <MyProducts />}
       {ActiveView === "Exit" && <Exit />}
       {ActiveView === "NewProduct" && <NewProduct />}
+      {ActiveView === "TestingView" && <TestingView />}
       <StatusBar style="auto" />
     </ViewStyled>
   );

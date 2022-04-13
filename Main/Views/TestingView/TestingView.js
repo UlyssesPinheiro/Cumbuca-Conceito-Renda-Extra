@@ -15,13 +15,40 @@ export default function TestingView() {
     dispatch(ActiveView.actions.setView("Home"));
   }
 
-  const [Field1, setField1] = useState("");
-  const [Field2, setField2] = useState("");
-  const [Field3, setField3] = useState("");
-  const [Field4, setField4] = useState("");
+  const [data, setData] = useState({
+    username: "",
+    password: "",
+    checkTextImputChange: false,
+    secureTextEntry: true,
+    isValidUser: true,
+    isValidPassword: true,
+  });
 
-  function SubmitForm() {
-    console.log("log: ", Field1, Field2, Field3, Field4);
+  function SubmitForm() {}
+
+  function handleValidUser(val) {
+    console.log("valid user:", val);
+    if (val.trim().length > 4) {
+      setData((data) => {
+        return { ...data, isValidUser: true };
+      });
+    } else {
+      setData((data) => {
+        return { ...data, isValidUser: false };
+      });
+    }
+  }
+  function handleValidPassword(val) {
+    console.log("valid user:", val);
+    if (val.trim().length > 8) {
+      setData((data) => {
+        return { ...data, isValidPassword: true };
+      });
+    } else {
+      setData((data) => {
+        return { ...data, isValidPassword: false };
+      });
+    }
   }
 
   return (
@@ -29,10 +56,20 @@ export default function TestingView() {
       <Container>
         <FilledButton onPress={goHome}></FilledButton>
 
-        <TextInputStyled onChangeText={(v) => setField1(v)}></TextInputStyled>
-        <TextInputStyled onChangeText={(v) => setField2(v)}></TextInputStyled>
-        <TextInputStyled onChangeText={(v) => setField3(v)}></TextInputStyled>
-        <TextInputStyled onChangeText={(v) => setField4(v)}></TextInputStyled>
+        <TextInputStyled
+          onChangeText={(e) => handleValidUser(e)}
+        ></TextInputStyled>
+        {!data.isValidUser && (
+          <ErrorText>Username must be 4 charraters long.</ErrorText>
+        )}
+
+        <TextInputStyled
+          onChangeText={(e) => handleValidPassword(e)}
+        ></TextInputStyled>
+        {!data.isValidPassword && (
+          <ErrorText>Password must be 8 charraters long.</ErrorText>
+        )}
+
         <FilledButton onPress={SubmitForm}></FilledButton>
       </Container>
     </Background>
@@ -42,4 +79,8 @@ export default function TestingView() {
 const Container = styled.View`
   padding: 20px;
   padding-top: 40px;
+`;
+
+const ErrorText = styled.Text`
+  color: ${Color.error};
 `;
