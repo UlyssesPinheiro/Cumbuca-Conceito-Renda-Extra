@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Color } from "../Defaults/Color";
 import { Font } from "../Defaults/Font";
 import IconSquare from "./IconSquare";

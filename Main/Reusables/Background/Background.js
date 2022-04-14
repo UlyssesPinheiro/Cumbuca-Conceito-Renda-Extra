@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 
 export default function Background({ children }) {
   return <ImgStyled source={require("./Background.jpg")}>{children}</ImgStyled>;

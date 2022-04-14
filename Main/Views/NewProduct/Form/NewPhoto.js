@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Color } from "../../../Defaults/Color";
 import { Font } from "../../../Defaults/Font";
 import * as ImagePicker from "expo-image-picker";

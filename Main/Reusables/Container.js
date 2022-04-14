@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Border } from "../Defaults/Border";
 import { Color } from "../Defaults/Color";
 import { StyleSheet } from "react-native";

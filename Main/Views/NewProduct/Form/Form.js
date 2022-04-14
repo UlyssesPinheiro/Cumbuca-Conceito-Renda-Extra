@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import FormHeader from "./FormHeader";
 import ShowPhoto from "./ShowPhoto";
 import NewPhoto from "./NewPhoto";
@@ -90,8 +90,9 @@ export default function Form() {
         photos,
         title: data.name,
         description: data.description ? data.description : "",
-        price: data.price,
-        amount: data.amount,
+        price: Number(data.price),
+        amount: Number(data.amount),
+        totalValue: Number(data.price) * Number(data.amount),
       };
 
       dispatch(UserProducts.actions.addProduct(exportData));

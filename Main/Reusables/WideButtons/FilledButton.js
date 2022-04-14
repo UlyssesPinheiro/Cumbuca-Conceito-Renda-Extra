@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Border } from "../../Defaults/Border";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";

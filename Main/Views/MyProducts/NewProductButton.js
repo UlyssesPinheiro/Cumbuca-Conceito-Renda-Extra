@@ -2,7 +2,7 @@ import React from "react";
 import ContainerStyled from "../../Reusables/ContainerStyled";
 import { TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Font } from "../../Defaults/Font";
 import { Color } from "../../Defaults/Color";
 

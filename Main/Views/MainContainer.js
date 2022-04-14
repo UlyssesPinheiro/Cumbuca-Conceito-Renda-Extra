@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { StatusBar } from "expo-status-bar";
 import Home from "./Home/Home";
 import MyProducts from "./MyProducts/MyProducts";
@@ -8,7 +8,6 @@ import Exit from "./Exit/Exit";
 import NewProduct from "./NewProduct/NewProduct";
 import ProductAdded from "./NewProduct/ProductAdded";
 import { ActiveView } from "../Store/ActiveViews";
-import { UserConfig } from "../Store/UserConfig";
 
 export default function MainContainer() {
   const dispatch = useDispatch();

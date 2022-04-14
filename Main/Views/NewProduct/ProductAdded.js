@@ -1,6 +1,6 @@
 import React from "react";
 import Background from "../../Reusables/Background/Background";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Color } from "../../Defaults/Color";

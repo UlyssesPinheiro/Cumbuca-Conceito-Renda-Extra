@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import Background from "../../Reusables/Background/Background";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Color } from "../../Defaults/Color";

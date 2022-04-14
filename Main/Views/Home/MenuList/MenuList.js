@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Font } from "../../../Defaults/Font";
 import IconSquare from "../../../Reusables/IconSquare";
 import { ActiveView } from "../../../Store/ActiveViews";

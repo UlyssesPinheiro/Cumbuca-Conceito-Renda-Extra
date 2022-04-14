@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Border } from "../../../../Defaults/Border";
 import { Font } from "../../../../Defaults/Font";
 

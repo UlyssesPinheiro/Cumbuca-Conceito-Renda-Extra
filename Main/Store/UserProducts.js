@@ -30,10 +30,13 @@ export const UserProducts = createSlice({
       }
       const productWithKey = { ...action.payload, id };
       state.products.push(productWithKey);
+
+      console.log(state);
     },
 
     editProductAmount(state, action) {
       let itemToRemove = undefined;
+
       state.products = state.products.map((item) => {
         if (item.id === action.payload.id) {
           item.amount =
@@ -47,6 +50,7 @@ export const UserProducts = createSlice({
           return item;
         }
       });
+
       if (itemToRemove) {
         const [newState, newOpenIds] = removeItem(
           state.products,

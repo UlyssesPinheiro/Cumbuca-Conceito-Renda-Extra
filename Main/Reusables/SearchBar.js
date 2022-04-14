@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Border } from "../Defaults/Border";
 import { Color } from "../Defaults/Color";
 import Icon from "react-native-vector-icons/Feather";
