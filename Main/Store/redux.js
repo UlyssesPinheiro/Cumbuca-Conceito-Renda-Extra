@@ -1,14 +1,30 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, createStore } from "@reduxjs/toolkit";
 import { ActiveView } from "./ActiveViews";
 import { UserConfig } from "./UserConfig";
 import { UserProducts } from "./UserProducts";
 
-const store = configureStore({
-  reducer: {
-    ActiveView: ActiveView.reducer,
-    UserProducts: UserProducts.reducer,
-    UserConfig: UserConfig.reducer,
-  },
+import storage from "@react-native-async-storage/async-storage";
+import { persistStore, persistReducer } from "redux-persist";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const rootReducer = combineReducers({
+  ActiveView: ActiveView.reducer,
+  UserProducts: UserProducts.reducer,
+  UserConfig: UserConfig.reducer,
 });
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = createStore(persistedReducer, {
+  ActiveView: ActiveView.getInitialState(),
+  UserProducts: UserProducts.getInitialState(),
+  UserConfig: UserConfig.getInitialState(),
+});
+
+const persistor = persistStore(store);
+
+export { store, persistor };

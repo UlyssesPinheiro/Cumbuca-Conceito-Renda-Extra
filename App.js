@@ -1,5 +1,6 @@
 import { Provider, useDispatch } from "react-redux";
-import store from "./Main/Store/redux";
+import { store, persistor } from "./Main/Store/redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 import AppLoading from "expo-app-loading";
 import {
@@ -23,7 +24,9 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <MainContainer />
+      <PersistGate loading={null} persistor={persistor}>
+        <MainContainer />
+      </PersistGate>
     </Provider>
   );
 }
