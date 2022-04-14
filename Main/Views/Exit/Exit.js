@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
+import { Border } from "../../Defaults/Border";
 import Background from "../../Reusables/Background/Background";
 import FilledButton from "../../Reusables/WideButtons/FilledButton";
 import { useDispatch, useSelector } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
+import FormHeader from "../NewProduct/Form/FormHeader";
+import { UserConfig } from "../../Store/UserConfig";
+// import { save, load } from "../../Store/ReduxAsync/UserConfigAsync";
 
 export default function Exit() {
   const dispatch = useDispatch();
-  const View = useSelector((state) => state.ActiveView.active);
+  const [name, setName] = useState("Usuário");
 
   function loginHandler() {
     dispatch(ActiveView.actions.setView("Home"));
+    dispatch(UserConfig.actions.setUserName(name));
   }
 
   return (
@@ -27,6 +32,12 @@ export default function Exit() {
           Venda produtos ou serviços para ganhar uma renda extra
         </SubHeader>
       </CenterView>
+      <FormItem>
+        <FormHeader>Qual o seu nome?</FormHeader>
+        <InputContainer>
+          <InputStyled onChangeText={(e) => setName(e)}></InputStyled>
+        </InputContainer>
+      </FormItem>
       <FilledButton onPress={loginHandler}>Entrar</FilledButton>
     </Background>
   );
@@ -42,7 +53,7 @@ const CenterView = styled.View`
   width: 65%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40%;
+  margin-bottom: 25%;
 `;
 
 const HeaderWelcome = styled.Text`
@@ -58,4 +69,29 @@ const SubHeader = styled.Text`
   font-family: ${Font.family.regular};
   color: ${Color.gray7};
   text-align: center;
+`;
+
+const FormItem = styled.View`
+  margin-top: 10%;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+`;
+
+const InputContainer = styled.View`
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border: ${Border.stroke};
+  border-radius: 5px;
+  width: 80%;
+`;
+
+const InputStyled = styled.TextInput`
+  width: 100%;
+  padding: 7px 0;
+  font-size: ${Font.sizes[4] + "px"};
+  font-family: ${Font.family.regular};
 `;
