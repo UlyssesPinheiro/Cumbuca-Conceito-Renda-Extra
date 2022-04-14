@@ -22,6 +22,7 @@ export default function ProductAdded() {
   function goToMyProducts() {
     dispatch(ActiveView.actions.setView("MyProducts"));
   }
+
   function goToNewProduct() {
     dispatch(ActiveView.actions.setView("NewProduct"));
   }

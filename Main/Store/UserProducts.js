@@ -1,26 +1,85 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const stateDefault = {
-  amount: "11",
-  description: "1",
-  title: "aaaaaa",
-  photos: [],
-  price: "50",
-  id: 1,
-};
+function removeItem(oldState, id, oldOpenIds) {
+  let newOpenIds = oldOpenIds;
+  const newState = oldState.filter((item) => {
+    if (item.id === id) {
+      const openId = item.id;
+      newOpenIds.push(openId);
+      newOpenIds = oldOpenIds.sort((a, b) => a > b);
+      return false;
+    } else {
+      return true;
+    }
+  });
+  return [newState, newOpenIds];
+}
+
+const initialState = { products: [], openIds: [] };
 
 export const UserProducts = createSlice({
   name: "User Products",
-  initialState: [],
+  initialState,
   reducers: {
     addProduct(state, action) {
-      state.push(action.payload);
+      let id;
+      if (state.openIds.length > 0) {
+        id = state.openIds.shift();
+      } else {
+        id = state.products.length + 1;
+      }
+      const productWithKey = { ...action.payload, id };
+      state.products.push(productWithKey);
     },
+
     editProductAmount(state, action) {
-      //   state.push(action.payload);
+      let itemToRemove = undefined;
+      state.products = state.products.map((item) => {
+        if (item.id === action.payload.id) {
+          item.amount =
+            Number(item.amount) + Number(action.payload.plusOrMinus);
+          if (item.amount <= 0) {
+            console.log("Remove item");
+            itemToRemove = item.id;
+          }
+          return item;
+        } else {
+          return item;
+        }
+      });
+      if (itemToRemove) {
+        const [newState, newOpenIds] = removeItem(
+          state.products,
+          itemToRemove,
+          state.openIds
+        );
+        state.products = newState;
+        state.openIds = newOpenIds;
+      }
+      if (state.products.length === 0) {
+        state.openIds = [];
+      }
+
+      console.log(state.openIds);
+      console.log(state.products);
     },
+
     removeProduct(state, action) {
-      //   state.push(action.payload);
+      const [newState, newOpenIds] = removeItem(
+        state.products,
+        action.payload,
+        state.openIds
+      );
+      state.products = newState;
+      state.openIds = newOpenIds;
+
+      if (state.products.length === 0) {
+        state.openIds = [];
+      }
+    },
+
+    clearProducts(state) {
+      state = initialState;
     },
   },
 });

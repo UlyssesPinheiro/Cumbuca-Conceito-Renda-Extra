@@ -8,7 +8,7 @@ import NewProductButton from "../../Views/MyProducts/NewProductButton";
 const numColumns = 1;
 
 export default function List1PerLine() {
-  const UserProducts = useSelector((state) => state.UserProducts);
+  const UserProducts = useSelector((state) => state.UserProducts.products);
 
   if (!UserProducts) return;
 
@@ -24,9 +24,9 @@ export default function List1PerLine() {
               item.title.substring(0, 35) +
               `${item.title.length > 35 ? "..." : ""}`
             }
-            price={`R$ ${Number(item.price).toFixed(2)}`}
+            price={Number(item.price)}
             amount={item.amount}
-            key={item.key}
+            id={item.id}
           ></MyProductCard>
         );
       }}

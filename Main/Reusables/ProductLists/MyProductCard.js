@@ -1,29 +1,52 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import Feather from "react-native-vector-icons/Feather";
 import { Border } from "../../Defaults/Border";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
+import { UserProducts } from "../../Store/UserProducts";
 import Container from "../Container";
 import { ProductBoldText, ProductName } from "./BoldTextAndName";
 
-export default function MyProductCard({ photo, name, price, amount }) {
+export default function MyProductCard({ photo, name, price, amount, id }) {
+  const dispatch = useDispatch();
+
+  function editProductAmount(payload) {
+    dispatch(UserProducts.actions.editProductAmount(payload));
+  }
+
+  function deleteProduct() {
+    dispatch(UserProducts.actions.removeProduct(id));
+  }
+
   return (
-    <CardView>
+    <CardView key={id}>
+      <DeleteButton onPress={deleteProduct}>
+        <Feather name="x" size={25} color={Color.black}></Feather>
+      </DeleteButton>
       {photo && <ProductImage source={{ uri: photo }} />}
       {!photo && <ImageMissing />}
       <TextView>
-        <ProductBoldText>{price}</ProductBoldText>
+        <ProductBoldText>{`R$ ${price}`}</ProductBoldText>
         <ProductName>{name}</ProductName>
-        <AmountTitle>Quantidade</AmountTitle>
+        <BoldTitleMargTop>Quantidade</BoldTitleMargTop>
         <AmountView>
           <AmountText>{amount} un.</AmountText>
-          <AddSubtractBtn>
+          <AddSubtractBtn
+            onPress={() => editProductAmount({ plusOrMinus: -1, id })}
+          >
             <BtnTxt>-</BtnTxt>
           </AddSubtractBtn>
-          <AddSubtractBtn>
+          <AddSubtractBtn
+            onPress={() => editProductAmount({ plusOrMinus: 1, id })}
+          >
             <BtnTxt>+</BtnTxt>
           </AddSubtractBtn>
         </AmountView>
+        <BoldTitleMargTop>
+          Valor Total: {`R$ ${price * amount}`}
+        </BoldTitleMargTop>
       </TextView>
     </CardView>
   );
@@ -38,11 +61,11 @@ const CardView = styled(Container)`
 `;
 const ProductImage = styled.Image`
   height: 100%;
-  width: 40%;
+  width: 45%;
 `;
 const ImageMissing = styled.View`
   height: 100%;
-  width: 40%;
+  width: 45%;
   background-color: ${Color.gray5};
 `;
 
@@ -51,7 +74,7 @@ const TextView = styled.View`
   padding: 15px;
 `;
 
-const AmountTitle = styled(ProductBoldText)`
+const BoldTitleMargTop = styled(ProductBoldText)`
   margin-top: 15px;
 `;
 
@@ -65,7 +88,7 @@ const AmountText = styled(ProductName)`
   font-size: ${Font.sizes[4] + "px"};
 `;
 
-const AddSubtractBtn = styled.View`
+const AddSubtractBtn = styled.TouchableOpacity`
   margin-left: 10px;
   height: 30px;
   width: 30px;
@@ -80,4 +103,10 @@ const BtnTxt = styled.Text`
   font-family: ${Font.family.bold};
   position: relative;
   bottom: 5px;
+`;
+
+const DeleteButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;

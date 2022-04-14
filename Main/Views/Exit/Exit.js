@@ -18,6 +18,7 @@ export default function Exit() {
   function loginHandler() {
     dispatch(ActiveView.actions.setView("Home"));
     dispatch(UserConfig.actions.setUserName(name));
+    dispatch(UserConfig.actions.setUserIsLoggedIn(true));
   }
 
   return (

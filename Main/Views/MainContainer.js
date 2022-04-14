@@ -7,67 +7,30 @@ import { useSelector, useDispatch } from "react-redux";
 import Exit from "./Exit/Exit";
 import NewProduct from "./NewProduct/NewProduct";
 import ProductAdded from "./NewProduct/ProductAdded";
-// import { UserConfig } from "../Store/UserConfig";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ActiveView } from "../Store/ActiveViews";
+import { UserConfig } from "../Store/UserConfig";
 
 export default function MainContainer() {
   const dispatch = useDispatch();
+  const [resetHomeScreen, setResetHomeScreen] = useState(true);
 
-  const ActiveView = useSelector((state) => state.ActiveView.active);
-  // const UserConfigConst = useSelector((state) => state.UserConfig);
+  const ActiveScreen = useSelector((state) => state.ActiveView.active);
+  const userIsLoggedIn = useSelector((state) => state.UserConfig.active);
 
-  // const [loadedFromAsync, setLoadedFromAsync] = useState(false);
-
-  // async function loadFromAsync() {
-  //   const UserConfigAsync = await AsyncStorage.getItem("UserConfigAsync");
-  //   console.log("loadingFromAsync: ", UserConfigAsync);
-
-  //   if (UserConfigAsync) {
-  //     dispatch(
-  //       UserConfig.actions.setHiddenBalance(
-  //         UserConfigAsync.hiddenBalance ? UserConfigAsync.hiddenBalance : false
-  //       )
-  //     );
-  //     dispatch(UserConfig.actions.setUserIsLoggedIn(false));
-  //     dispatch(
-  //       UserConfig.actions.setUserName(
-  //         UserConfigAsync.userName ? UserConfigAsync.userName : "Usuário"
-  //       )
-  //     );
-  //     setLoadedFromAsync(true);
-  //     console.log("LoadingFromAsync CurrentState: ", UserConfigConst);
-  //   }
-  // }
-
-  // async function saveToAsync() {
-  //   await AsyncStorage.setItem(
-  //     "UserConfigAsync",
-  //     JSON.stringify(UserConfigConst)
-  //   );
-  //   const UserConfigAsync = await AsyncStorage.getItem("UserConfigAsync");
-  //   console.log("saveToAsync");
-  //   console.log(UserConfigAsync);
-  // }
-
-  // useEffect(() => {
-  //   loadFromAsync();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (loadedFromAsync) {
-  //     setTimeout(() => {
-  //       saveToAsync();
-  //     }, 5000);
-  //   }
-  // }, [ActiveView]);
+  useEffect(() => {
+    if (resetHomeScreen && userIsLoggedIn) {
+      dispatch(ActiveView.actions.setView("Home"));
+      setResetHomeScreen(false);
+    }
+  }, []);
 
   return (
     <ViewStyled>
-      {ActiveView === "Home" && <Home />}
-      {ActiveView === "MyProducts" && <MyProducts />}
-      {ActiveView === "Exit" && <Exit />}
-      {ActiveView === "NewProduct" && <NewProduct />}
-      {ActiveView === "ProductAdded" && <ProductAdded />}
+      {ActiveScreen === "Home" && <Home />}
+      {ActiveScreen === "MyProducts" && <MyProducts />}
+      {ActiveScreen === "Exit" && <Exit />}
+      {ActiveScreen === "NewProduct" && <NewProduct />}
+      {ActiveScreen === "ProductAdded" && <ProductAdded />}
       <StatusBar style="auto" />
     </ViewStyled>
   );

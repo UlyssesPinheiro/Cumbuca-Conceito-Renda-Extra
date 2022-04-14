@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
@@ -11,6 +11,7 @@ export default function WelcomeUser() {
   const dispatch = useDispatch();
 
   const hidennBalance = useSelector((state) => state.UserConfig.hiddenBalance);
+  const userName = useSelector((state) => state.UserConfig.userName);
 
   function toggleHideBalanceHandler() {
     dispatch(UserConfig.actions.toggleHiddenBalance());
@@ -20,9 +21,9 @@ export default function WelcomeUser() {
     <>
       <TitleView>
         <UserProfile>
-          <UserName>US</UserName>
+          <UserName>{userName.toUpperCase().trim().substring(0, 2)}</UserName>
         </UserProfile>
-        <WelcomeTitle>Olá, Usuário</WelcomeTitle>
+        <WelcomeTitle>Olá, {userName}</WelcomeTitle>
       </TitleView>
       <SalesView>
         <SalesTitleView>

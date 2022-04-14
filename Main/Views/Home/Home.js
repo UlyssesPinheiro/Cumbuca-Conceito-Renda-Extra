@@ -21,6 +21,7 @@ import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import { Margins } from "../../Defaults/Margins";
+import { UserProducts } from "../../Store/UserProducts";
 
 export default function Home() {
   const [MenuExpanded, setMenuExpanded] = useState(false);
@@ -31,6 +32,7 @@ export default function Home() {
   }
 
   function addNewProductHandler() {
+    // dispatch(UserProducts.actions.clearProducts());
     dispatch(ActiveView.actions.setView("NewProduct"));
   }
 

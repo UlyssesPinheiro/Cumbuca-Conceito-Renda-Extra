@@ -17,9 +17,7 @@ export default function Form() {
   const [photos, setPhotos] = useState([]);
 
   function addPhotoInput(uri) {
-    console.log("WORKING");
     setPhotos((prev) => {
-      console.log("setPhotosLog: ", prev);
       return [...prev, uri];
     });
   }
@@ -36,7 +34,6 @@ export default function Form() {
   });
 
   function handleValidName(val) {
-    console.log("valid Name:", val);
     if (val.trim().length > 4) {
       setData((data) => {
         return { ...data, name: val, isValidName: true };
@@ -49,7 +46,6 @@ export default function Form() {
   }
 
   function handleValidDescription(val) {
-    console.log("valid Description:", val);
     if (val.length > 0) {
       setData((data) => {
         return { ...data, description: val };
@@ -58,7 +54,6 @@ export default function Form() {
   }
 
   function handleValidPrice(val) {
-    console.log("valid Price:", val);
     if (Number(val) > 0) {
       setData((data) => {
         return { ...data, price: val, isValidPrice: true };
@@ -71,7 +66,6 @@ export default function Form() {
   }
 
   function handleValidAmount(val) {
-    console.log("valid Amount:", val);
     if (Number(val) > 0) {
       setData((data) => {
         return { ...data, amount: val, isValidAmount: true };
@@ -100,11 +94,12 @@ export default function Form() {
         amount: data.amount,
       };
 
-      console.log("All required fields are filled");
-      console.log("data to save on state: ", exportData);
-
       dispatch(UserProducts.actions.addProduct(exportData));
       dispatch(ActiveView.actions.setView("ProductAdded"));
+    } else {
+      handleValidName(data.name);
+      handleValidPrice(data.price);
+      handleValidAmount(data.amount);
     }
   }
 

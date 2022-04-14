@@ -30,7 +30,7 @@ export default function List2PerLine({ HeaderJSX }) {
             item.title.substring(0, 35) +
             `${item.title.length > 35 ? "..." : ""}`
           }
-          price={`R$ ${Number(item.price).toFixed(2)}`}
+          price={`R$ ${Number(item.price).toFixed(0)}`}
           key={item.key}
         ></ProductCard>
       )}

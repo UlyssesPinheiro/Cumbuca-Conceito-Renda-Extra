@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Font } from "../../../Defaults/Font";
 import IconSquare from "../../../Reusables/IconSquare";
 import { ActiveView } from "../../../Store/ActiveViews";
+import { UserConfig } from "../../../Store/UserConfig";
 
 export default function MenuList() {
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ export default function MenuList() {
   }
   function exit() {
     dispatch(ActiveView.actions.setView("Exit"));
+    dispatch(UserConfig.actions.clearUserName());
+    dispatch(UserConfig.actions.setUserIsLoggedIn(false));
   }
 
   return (
