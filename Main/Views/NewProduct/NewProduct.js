@@ -9,6 +9,7 @@ import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import { useWindowDimensions } from "react-native";
+import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 
 export default function NewProduct() {
   const dispatch = useDispatch();
@@ -30,17 +31,19 @@ export default function NewProduct() {
 
   return (
     <Background>
-      <NavUncontained>
-        <IconContainerSty onPress={goBackHandler}>
-          <FontAwesome
-            name="angle-left"
-            size={35}
-            color={Color.black}
-          ></FontAwesome>
-        </IconContainerSty>
-        <TitleNav>Anunciar Produto</TitleNav>
-      </NavUncontained>
-      <Form />
+      <MaxWidthContainer>
+        <NavUncontained>
+          <IconContainerSty onPress={goBackHandler}>
+            <FontAwesome
+              name="angle-left"
+              size={35}
+              color={Color.black}
+            ></FontAwesome>
+          </IconContainerSty>
+          <TitleNav>Anunciar Produto</TitleNav>
+        </NavUncontained>
+        <Form />
+      </MaxWidthContainer>
     </Background>
   );
 }

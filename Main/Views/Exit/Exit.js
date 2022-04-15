@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import FormHeader from "../NewProduct/Form/FormHeader";
 import { UserConfig } from "../../Store/UserConfig";
+import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 
 export default function Exit() {
   const dispatch = useDispatch();
@@ -22,23 +23,25 @@ export default function Exit() {
 
   return (
     <Background>
-      <CenterView>
-        <LargeLogo
-          resizeMode="contain"
-          source={require("../../Reusables/Logo/logo.png")}
-        ></LargeLogo>
-        <HeaderWelcome>Bem vindo ao Cumbuca Renda Extra</HeaderWelcome>
-        <SubHeader>
-          Venda produtos ou serviços para ganhar uma renda extra
-        </SubHeader>
-      </CenterView>
-      <FormItem>
-        <FormHeader>Qual o seu nome?</FormHeader>
-        <InputContainer>
-          <InputStyled onChangeText={(e) => setName(e)}></InputStyled>
-        </InputContainer>
-      </FormItem>
-      <FilledButton onPress={loginHandler}>Entrar</FilledButton>
+      <MaxWidthContainer>
+        <CenterView>
+          <LargeLogo
+            resizeMode="contain"
+            source={require("../../Reusables/Logo/logo.png")}
+          ></LargeLogo>
+          <HeaderWelcome>Bem vindo ao Cumbuca Renda Extra</HeaderWelcome>
+          <SubHeader>
+            Venda produtos ou serviços para ganhar uma renda extra
+          </SubHeader>
+        </CenterView>
+        <FormItem>
+          <FormHeader>Qual o seu nome?</FormHeader>
+          <InputContainer>
+            <InputStyled onChangeText={(e) => setName(e)}></InputStyled>
+          </InputContainer>
+        </FormItem>
+        <FilledButton onPress={loginHandler}>Entrar</FilledButton>
+      </MaxWidthContainer>
     </Background>
   );
 }
@@ -74,7 +77,8 @@ const SubHeader = styled.Text`
 const FormItem = styled.View`
   margin-top: 10%;
   margin-bottom: 15px;
-
+  width: 100%;
+  max-width: 800px;
   display: flex;
   align-items: center;
 `;

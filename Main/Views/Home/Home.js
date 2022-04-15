@@ -22,6 +22,7 @@ import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import { Margins } from "../../Defaults/Margins";
 import { UserProducts } from "../../Store/UserProducts";
+import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 
 export default function Home() {
   const [MenuExpanded, setMenuExpanded] = useState(false);
@@ -63,21 +64,23 @@ export default function Home() {
 
   return (
     <Background>
-      <Nav>
-        <TopView>
-          <IconContainer onPress={MenuExpandedHandler}>
-            {IconShown}
-          </IconContainer>
-          <TitleNav>Renda Extra</TitleNav>
-          <Logo />
-        </TopView>
-        {!MenuExpanded ? (
-          <SearchBar parentLiftText={searchQuery} />
-        ) : (
-          <MenuList />
-        )}
-      </Nav>
-      <ListOtherProducts HeaderJSX={HomeItems} query={query} />
+      <MaxWidthContainer>
+        <Nav>
+          <TopView>
+            <IconContainer onPress={MenuExpandedHandler}>
+              {IconShown}
+            </IconContainer>
+            <TitleNav>Renda Extra</TitleNav>
+            <Logo />
+          </TopView>
+          {!MenuExpanded ? (
+            <SearchBar parentLiftText={searchQuery} />
+          ) : (
+            <MenuList />
+          )}
+        </Nav>
+        <ListOtherProducts HeaderJSX={HomeItems} query={query} />
+      </MaxWidthContainer>
     </Background>
   );
 }

@@ -30,6 +30,7 @@ export default function ListMyProducts({ query }) {
 
   const FlatListStyled = styled.FlatList`
     ${width < 800 ? "padding-right: 12px" : ""};
+    padding-top: 15px;
     width: 100%;
     max-width: 800px;
   `;
@@ -41,7 +42,7 @@ export default function ListMyProducts({ query }) {
 
   return (
     <FlatListStyled
-      ListHeaderComponent={NewProductButton}
+      ListHeaderComponent={!query ? NewProductButton : null}
       data={searchResults ? searchResults : userProducts}
       renderItem={({ item }) => {
         return (

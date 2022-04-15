@@ -12,6 +12,7 @@ import { Font } from "../../Defaults/Font";
 import FilledButton from "../../Reusables/WideButtons/FilledButton";
 import LineButton from "../../Reusables/WideButtons/LineButton";
 import { useWindowDimensions } from "react-native";
+import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 
 export default function ProductAdded() {
   const dispatch = useDispatch();
@@ -30,12 +31,22 @@ export default function ProductAdded() {
     dispatch(ActiveView.actions.setView("NewProduct"));
   }
 
+  const NavUncontained = styled.View`
+    margin-top: 60px;
+    ${width > 800 ? `width: 80%;` : `width: 100%;`}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  `;
   return (
     <Background>
-      <WrapperView>
-        <IconContainerSty onPress={closeHandler}>
-          <Feather name="x" size={35} color={Color.black}></Feather>
-        </IconContainerSty>
+      <MaxWidthContainer>
+        <NavUncontained>
+          <IconContainerSty onPress={closeHandler}>
+            <Feather name="x" size={35} color={Color.black}></Feather>
+          </IconContainerSty>
+        </NavUncontained>
         <CenterView>
           <FontAwesome
             name="check-circle"
@@ -51,16 +62,10 @@ export default function ProductAdded() {
           </FilledButtonStyled>
           <LineButton onPress={goToNewProduct}>Anunciar outro</LineButton>
         </ButtonsContainer>
-      </WrapperView>
+      </MaxWidthContainer>
     </Background>
   );
 }
-
-const WrapperView = styled.View`
-  width: 100%;
-  max-width: 800px;
-  height: 100%;
-`;
 
 const IconContainerSty = styled(IconContainer)`
   margin-top: ${Margins.navUncontainedTop + "px"};

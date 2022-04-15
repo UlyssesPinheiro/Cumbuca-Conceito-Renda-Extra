@@ -68,8 +68,7 @@ export default function ListOtherProducts({ HeaderJSX, query }) {
 }
 
 const FlatListStyled = styled.FlatList`
-  margin-top: 15px;
+  padding-top: 15px;
   padding-right: 15px;
   width: 100%;
-  max-width: 800px;
 `;
