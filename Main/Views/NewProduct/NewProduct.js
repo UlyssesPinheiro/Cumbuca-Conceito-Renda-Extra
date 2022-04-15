@@ -8,6 +8,7 @@ import Form from "./Form/Form";
 import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
+import { useWindowDimensions } from "react-native";
 
 export default function NewProduct() {
   const dispatch = useDispatch();
@@ -15,6 +16,17 @@ export default function NewProduct() {
   function goBackHandler() {
     dispatch(ActiveView.actions.setView("Home"));
   }
+
+  const width = useWindowDimensions().width;
+
+  const NavUncontained = styled.View`
+    margin-top: 60px;
+    ${width > 800 ? `width: 80%;` : `width: 100%;`}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  `;
 
   return (
     <Background>
@@ -32,14 +44,6 @@ export default function NewProduct() {
     </Background>
   );
 }
-
-const NavUncontained = styled.View`
-  margin-top: 60px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
 
 const IconContainerSty = styled(IconContainer)`
   position: absolute;

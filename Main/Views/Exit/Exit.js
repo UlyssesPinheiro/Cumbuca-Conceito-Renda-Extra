@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import FormHeader from "../NewProduct/Form/FormHeader";
 import { UserConfig } from "../../Store/UserConfig";
-// import { save, load } from "../../Store/ReduxAsync/UserConfigAsync";
 
 export default function Exit() {
   const dispatch = useDispatch();
@@ -49,12 +48,12 @@ const LargeLogo = styled.Image`
   height: 150px;
 `;
 const CenterView = styled.View`
-  margin-top: 40%;
+  margin-top: 200px;
   align-items: center;
   width: 65%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 25%;
+  margin-bottom: 100px;
 `;
 
 const HeaderWelcome = styled.Text`

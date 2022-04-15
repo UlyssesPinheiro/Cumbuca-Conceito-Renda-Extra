@@ -8,23 +8,29 @@ import { Color } from "../../Defaults/Color";
 
 import { ActiveView } from "../../Store/ActiveViews";
 import IconSquare from "../../Reusables/IconSquare";
+import { useWindowDimensions } from "react-native";
 
 export default function NewProductButton() {
   const dispatch = useDispatch();
+  const width = useWindowDimensions().width;
 
   function AddProductHandler() {
     dispatch(ActiveView.actions.setView("NewProduct"));
   }
 
+  const NewProductView = styled.TouchableOpacity`
+    ${width > 800 ? `width: 98%;` : `width: 100%;`}
+  `;
+
   return (
-    <TouchableOpacity onPress={AddProductHandler}>
+    <NewProductView onPress={AddProductHandler}>
       <ContainerStyled>
         <TitleView>
           <IconSquare name="plus"></IconSquare>
           <Title>Anunciar novo</Title>
         </TitleView>
       </ContainerStyled>
-    </TouchableOpacity>
+    </NewProductView>
   );
 }
 

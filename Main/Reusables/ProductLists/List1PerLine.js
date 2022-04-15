@@ -4,11 +4,22 @@ import styled from "styled-components/native";
 import MyProductCard from "./MyProductCard";
 import { useSelector } from "react-redux";
 import NewProductButton from "../../Views/MyProducts/NewProductButton";
-
-const numColumns = 1;
+import { useWindowDimensions } from "react-native";
 
 export default function List1PerLine() {
   const UserProducts = useSelector((state) => state.UserProducts.products);
+  const width = useWindowDimensions().width;
+
+  const FlatListStyled = styled.FlatList`
+    ${width < 800 ? "padding-right: 12px" : ""};
+    width: 100%;
+    max-width: 800px;
+  `;
+
+  let numColumns = 1;
+  if (width > 800) {
+    numColumns = 2;
+  }
 
   if (!UserProducts) return;
 
@@ -34,7 +45,3 @@ export default function List1PerLine() {
     />
   );
 }
-
-const FlatListStyled = styled.FlatList`
-  padding-right: 15px;
-`;

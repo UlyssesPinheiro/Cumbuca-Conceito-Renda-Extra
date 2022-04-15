@@ -6,12 +6,13 @@ import { Color } from "../../Defaults/Color";
 import { Font } from "../../Defaults/Font";
 
 export default function FilledButton({ style, onPress, children, disabled }) {
-  const SignInView = styled.View`
+  const SignInView = styled.TouchableOpacity`
     margin-left: auto;
     margin-right: auto;
     background-color: ${!disabled ? Color.black : Color.gray5};
     height: 50px;
     width: 80%;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,21 +20,9 @@ export default function FilledButton({ style, onPress, children, disabled }) {
   `;
 
   return (
-    <>
-      {!disabled && (
-        <TouchableOpacity style={style} onPress={onPress}>
-          <SignInView>
-            <ButtonText>{children}</ButtonText>
-          </SignInView>
-        </TouchableOpacity>
-      )}
-
-      {disabled && (
-        <SignInView style={style}>
-          <ButtonText>{children}</ButtonText>
-        </SignInView>
-      )}
-    </>
+    <SignInView style={style} onPress={onPress}>
+      <ButtonText>{children}</ButtonText>
+    </SignInView>
   );
 }
 

@@ -11,9 +11,12 @@ import { ActiveView } from "../../Store/ActiveViews";
 import { Font } from "../../Defaults/Font";
 import FilledButton from "../../Reusables/WideButtons/FilledButton";
 import LineButton from "../../Reusables/WideButtons/LineButton";
+import { useWindowDimensions } from "react-native";
 
 export default function ProductAdded() {
   const dispatch = useDispatch();
+
+  const width = useWindowDimensions().width;
 
   function closeHandler() {
     dispatch(ActiveView.actions.setView("Home"));
@@ -29,23 +32,35 @@ export default function ProductAdded() {
 
   return (
     <Background>
-      <IconContainerSty onPress={closeHandler}>
-        <Feather name="x" size={35} color={Color.black}></Feather>
-      </IconContainerSty>
-      <CenterView>
-        <FontAwesome name="check-circle" size={180} color={Color.iconAccent} />
-        <BoldText>Parabéns, seu anúncio foi criado com sucesso!</BoldText>
-        <ThinText>Em breve seu anúncio estará no ar</ThinText>
-      </CenterView>
-      <ButtonsContainer>
-        <FilledButtonStyled onPress={goToMyProducts}>
-          Ver meus anúncios
-        </FilledButtonStyled>
-        <LineButton onPress={goToNewProduct}>Anunciar outro</LineButton>
-      </ButtonsContainer>
+      <WrapperView>
+        <IconContainerSty onPress={closeHandler}>
+          <Feather name="x" size={35} color={Color.black}></Feather>
+        </IconContainerSty>
+        <CenterView>
+          <FontAwesome
+            name="check-circle"
+            size={180}
+            color={Color.iconAccent}
+          />
+          <BoldText>Parabéns, seu anúncio foi criado com sucesso!</BoldText>
+          <ThinText>Em breve seu anúncio estará no ar</ThinText>
+        </CenterView>
+        <ButtonsContainer>
+          <FilledButtonStyled onPress={goToMyProducts}>
+            Ver meus anúncios
+          </FilledButtonStyled>
+          <LineButton onPress={goToNewProduct}>Anunciar outro</LineButton>
+        </ButtonsContainer>
+      </WrapperView>
     </Background>
   );
 }
+
+const WrapperView = styled.View`
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+`;
 
 const IconContainerSty = styled(IconContainer)`
   margin-top: ${Margins.navUncontainedTop + "px"};
@@ -55,13 +70,13 @@ const IconContainerSty = styled(IconContainer)`
 
 const CenterView = styled.View`
   width: 80%;
-  margin: 40% auto 0;
+  margin: 200px auto 0;
   display: flex;
   align-items: center;
 `;
 
 const BoldText = styled.Text`
-  margin-top: 10%;
+  margin-top: 30px;
   font-size: ${Font.sizes[5] + "px"};
   font-family: ${Font.family.bold};
   color: ${Color.gray8};

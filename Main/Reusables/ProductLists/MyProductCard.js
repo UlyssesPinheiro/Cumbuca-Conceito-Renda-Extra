@@ -8,9 +8,11 @@ import { Font } from "../../Defaults/Font";
 import { UserProducts } from "../../Store/UserProducts";
 import Container from "../Container";
 import { ProductBoldText, ProductName } from "./BoldTextAndName";
+import { useWindowDimensions } from "react-native";
 
 export default function MyProductCard({ photo, name, price, amount, id }) {
   const dispatch = useDispatch();
+  const width = useWindowDimensions().width;
 
   function editProductAmount(payload) {
     dispatch(UserProducts.actions.editProductAmount(payload));
@@ -19,6 +21,18 @@ export default function MyProductCard({ photo, name, price, amount, id }) {
   function deleteProduct() {
     dispatch(UserProducts.actions.removeProduct(id));
   }
+
+  const CardView = styled(Container)`
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    overflow: hidden;
+    ${width > 800
+      ? `width: 50%;
+    max-width: 375px;`
+      : ""}
+  `;
 
   return (
     <CardView key={id}>
@@ -52,13 +66,6 @@ export default function MyProductCard({ photo, name, price, amount, id }) {
   );
 }
 
-const CardView = styled(Container)`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  overflow: hidden;
-`;
 const ProductImage = styled.Image`
   height: 100%;
   width: 45%;
