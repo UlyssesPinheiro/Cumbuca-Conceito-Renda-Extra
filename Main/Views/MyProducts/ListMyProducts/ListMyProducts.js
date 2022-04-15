@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import MyProductCard from "./MyProductCard";
+import CardMyProduct from "./CardMyProduct";
 import { useSelector } from "react-redux";
-import NewProductButton from "../../Views/MyProducts/NewProductButton";
+import NewProductButton from "../NewProductButton";
 import { useWindowDimensions } from "react-native";
 
-export default function List1PerLine() {
-  const UserProducts = useSelector((state) => state.UserProducts.products);
+export default function ListMyProducts({ searchResults }) {
+  let userProducts = useSelector((state) => state.UserProducts.products);
   const width = useWindowDimensions().width;
 
   const FlatListStyled = styled.FlatList`
@@ -21,15 +21,16 @@ export default function List1PerLine() {
     numColumns = 2;
   }
 
-  if (!UserProducts) return;
+  if (searchResults) userProducts = searchResults;
+  if (!userProducts) return;
 
   return (
     <FlatListStyled
       ListHeaderComponent={NewProductButton}
-      data={UserProducts}
+      data={userProducts}
       renderItem={({ item }) => {
         return (
-          <MyProductCard
+          <CardMyProduct
             photo={item.photos ? item.photos[0] : ""}
             name={
               item.title.substring(0, 35) +
@@ -38,7 +39,7 @@ export default function List1PerLine() {
             price={Number(item.price)}
             amount={item.amount}
             id={item.id}
-          ></MyProductCard>
+          ></CardMyProduct>
         );
       }}
       numColumns={numColumns}

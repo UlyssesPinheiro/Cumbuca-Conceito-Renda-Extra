@@ -2,15 +2,18 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components/native";
 import Feather from "react-native-vector-icons/Feather";
-import { Border } from "../../Defaults/Border";
-import { Color } from "../../Defaults/Color";
-import { Font } from "../../Defaults/Font";
-import { UserProducts } from "../../Store/UserProducts";
-import Container from "../Container";
-import { ProductBoldText, ProductName } from "./BoldTextAndName";
+import { Border } from "../../../Defaults/Border";
+import { Color } from "../../../Defaults/Color";
+import { Font } from "../../../Defaults/Font";
+import { UserProducts } from "../../../Store/UserProducts";
+import Container from "../../../Reusables/Container";
+import {
+  ProductBoldText,
+  ProductName,
+} from "../../../Reusables/ProductLists/BoldTextAndName";
 import { useWindowDimensions } from "react-native";
 
-export default function MyProductCard({ photo, name, price, amount, id }) {
+export default function CardMyProduct({ photo, name, price, amount, id }) {
   const dispatch = useDispatch();
   const width = useWindowDimensions().width;
 

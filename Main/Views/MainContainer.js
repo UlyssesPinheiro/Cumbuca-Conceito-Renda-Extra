@@ -37,5 +37,4 @@ export default function MainContainer() {
 
 const ViewStyled = styled.View`
   height: 100%;
-  background-color: #222222;
 `;

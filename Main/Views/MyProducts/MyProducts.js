@@ -9,14 +9,33 @@ import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import TitleNav from "../../Reusables/Nav/TitleNav";
 import Logo from "../../Reusables/Logo/Logo";
 import SearchBar from "../../Reusables/SearchBar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
-import List1PerLine from "../../Reusables/ProductLists/List1PerLine";
+import ListMyProducts from "./ListMyProducts/ListMyProducts";
 
 export default function MyProducts() {
   const dispatch = useDispatch();
+  const productList = useSelector((state) => state.UserProducts.products);
+  const [searchResults, setSearchResults] = useState(false);
+
   function backToHomeHandler() {
     dispatch(ActiveView.actions.setView("Home"));
+  }
+
+  function searchProducts(productList, query) {
+    setSearchResults(
+      productList.filter((product) => {
+        if (product.title.includes(query)) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    );
+  }
+
+  function getSearchQuery(query) {
+    searchProducts(productList, query);
   }
 
   return (
@@ -33,10 +52,10 @@ export default function MyProducts() {
           <TitleNav>Meus Produtos</TitleNav>
           <Logo />
         </TopView>
-        <SearchBar />
+        <SearchBar parentLiftText={getSearchQuery} />
       </Nav>
 
-      <List1PerLine />
+      <ListMyProducts searchResults={searchResults ? searchResults : false} />
     </Background>
   );
 }

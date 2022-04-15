@@ -10,7 +10,7 @@ import TitleNav from "../../Reusables/Nav/TitleNav";
 import Logo from "../../Reusables/Logo/Logo";
 import { Color } from "../../Defaults/Color";
 import SearchBar from "../../Reusables/SearchBar";
-import List2PerLine from "../../Reusables/ProductLists/List2PerLine";
+import ListOtherProducts from "./ListOtherProducts/ListOtherProducts";
 import Container from "../../Reusables/Container";
 import WelcomeUser from "./WelcomeUser";
 import NewProduct from "./NewProduct";
@@ -70,7 +70,7 @@ export default function Home() {
         </TopView>
         {!MenuExpanded ? <SearchBar /> : <MenuList />}
       </Nav>
-      <List2PerLine HeaderJSX={HomeItems} />
+      <ListOtherProducts HeaderJSX={HomeItems} />
     </Background>
   );
 }

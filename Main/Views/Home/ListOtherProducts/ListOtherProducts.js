@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import ProductCard from "./ProductCard";
+import ProductCard from "../../../Reusables/ProductLists/ProductCard";
 
 const numColumns = 2;
 
-export default function List2PerLine({ HeaderJSX }) {
+export default function ListOtherProducts({ HeaderJSX }) {
   useEffect(() => {
     function loadItems() {
       fetch("https://fakestoreapi.com/products?limit=4'")
