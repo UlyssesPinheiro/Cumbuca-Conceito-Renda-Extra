@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 
 import CardMyProduct from "./CardMyProduct";
@@ -6,9 +6,27 @@ import { useSelector } from "react-redux";
 import NewProductButton from "../NewProductButton";
 import { useWindowDimensions } from "react-native";
 
-export default function ListMyProducts({ searchResults }) {
-  let userProducts = useSelector((state) => state.UserProducts.products);
+export default function ListMyProducts({ query }) {
   const width = useWindowDimensions().width;
+  const userProducts = useSelector((state) => state.UserProducts.products);
+  const [searchResults, setSearchResults] = useState(false);
+
+  function searchProducts(query) {
+    setSearchResults(
+      userProducts.filter((product) => {
+        if (product.title.includes(query)) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    );
+  }
+  useEffect(() => {
+    searchProducts(query);
+  }, [userProducts, query]);
+
+  if (!userProducts) return;
 
   const FlatListStyled = styled.FlatList`
     ${width < 800 ? "padding-right: 12px" : ""};
@@ -21,13 +39,10 @@ export default function ListMyProducts({ searchResults }) {
     numColumns = 2;
   }
 
-  if (searchResults) userProducts = searchResults;
-  if (!userProducts) return;
-
   return (
     <FlatListStyled
       ListHeaderComponent={NewProductButton}
-      data={userProducts}
+      data={searchResults ? searchResults : userProducts}
       renderItem={({ item }) => {
         return (
           <CardMyProduct

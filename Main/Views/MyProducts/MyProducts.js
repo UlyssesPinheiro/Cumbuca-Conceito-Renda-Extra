@@ -15,27 +15,14 @@ import ListMyProducts from "./ListMyProducts/ListMyProducts";
 
 export default function MyProducts() {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.UserProducts.products);
-  const [searchResults, setSearchResults] = useState(false);
+  const [query, setQuery] = useState("");
 
   function backToHomeHandler() {
     dispatch(ActiveView.actions.setView("Home"));
   }
 
-  function searchProducts(productList, query) {
-    setSearchResults(
-      productList.filter((product) => {
-        if (product.title.includes(query)) {
-          return true;
-        } else {
-          return false;
-        }
-      })
-    );
-  }
-
   function getSearchQuery(query) {
-    searchProducts(productList, query);
+    setQuery(query);
   }
 
   return (
@@ -55,7 +42,7 @@ export default function MyProducts() {
         <SearchBar parentLiftText={getSearchQuery} />
       </Nav>
 
-      <ListMyProducts searchResults={searchResults ? searchResults : false} />
+      <ListMyProducts query={query} />
     </Background>
   );
 }

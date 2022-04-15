@@ -25,6 +25,7 @@ import { UserProducts } from "../../Store/UserProducts";
 
 export default function Home() {
   const [MenuExpanded, setMenuExpanded] = useState(false);
+  const [query, setQuery] = useState(false);
   const dispatch = useDispatch();
 
   function MenuExpandedHandler() {
@@ -36,18 +37,20 @@ export default function Home() {
     dispatch(ActiveView.actions.setView("NewProduct"));
   }
 
+  function searchQuery(text) {
+    setQuery(text);
+  }
+
   const HomeItems = (
     <>
       <ContainerStyled>
         <WelcomeUser />
       </ContainerStyled>
-
       <TouchableOpacity onPress={addNewProductHandler}>
         <ContainerStyled>
           <NewProduct />
         </ContainerStyled>
       </TouchableOpacity>
-
       <MayAlsoLike />
     </>
   );
@@ -68,9 +71,13 @@ export default function Home() {
           <TitleNav>Renda Extra</TitleNav>
           <Logo />
         </TopView>
-        {!MenuExpanded ? <SearchBar /> : <MenuList />}
+        {!MenuExpanded ? (
+          <SearchBar parentLiftText={searchQuery} />
+        ) : (
+          <MenuList />
+        )}
       </Nav>
-      <ListOtherProducts HeaderJSX={HomeItems} />
+      <ListOtherProducts HeaderJSX={HomeItems} query={query} />
     </Background>
   );
 }

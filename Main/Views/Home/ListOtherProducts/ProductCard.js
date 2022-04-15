@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Border } from "../../Defaults/Border";
-import { Color } from "../../Defaults/Color";
-import Container from "../Container";
-import { ProductBoldText, ProductName } from "./BoldTextAndName";
+import { Border } from "../../../Defaults/Border";
+import { Color } from "../../../Defaults/Color";
+import Container from "../../../Reusables/Container";
+import {
+  ProductBoldText,
+  ProductName,
+} from "../../../Reusables/ProductLists/BoldTextAndName";
 
 export default function ProductCard({ price, name, keyValue, image }) {
   return (
