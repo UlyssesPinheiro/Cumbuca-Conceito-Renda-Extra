@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import Feather from "react-native-vector-icons/Feather";
 
 import { Border } from "../../Defaults/Border";

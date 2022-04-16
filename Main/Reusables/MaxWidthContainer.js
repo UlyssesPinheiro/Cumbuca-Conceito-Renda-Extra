@@ -1,9 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components/native";
 
-export default function MaxWidthContainer({ children }) {
+const MaxWidthContainer = forwardRef(({ children }, ref) => {
   return <MaxWidth>{children}</MaxWidth>;
-}
+});
+
+// export default function MaxWidthContainer({ children }) {
+//   return <MaxWidth>{children}</MaxWidth>;
+// }
+export default MaxWidthContainer;
 
 const MaxWidth = styled.View`
   width: 100%;
@@ -13,3 +18,5 @@ const MaxWidth = styled.View`
   margin-left: auto;
   margin-right: auto;
 `;
+
+// forwardRef((props, ref)

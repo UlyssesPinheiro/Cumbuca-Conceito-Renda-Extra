@@ -28,7 +28,6 @@ function removeItem(oldState, id, oldOpenIds) {
 const initialState = {
   products: [],
   openIds: [],
-  confirmDeleteOn0unid: false,
 };
 
 export const UserProducts = createSlice({
