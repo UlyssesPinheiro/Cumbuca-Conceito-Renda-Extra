@@ -1,5 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// {
+//   "amount": 7,
+//   "description": "string",
+//   "id": 1,
+//   "photos": Array [],
+//   "price": 1,
+//   "title": "string",
+//   "totalValue": 1,
+// }
+
 function removeItem(oldState, id, oldOpenIds) {
   let newOpenIds = oldOpenIds;
   const newState = oldState.filter((item) => {

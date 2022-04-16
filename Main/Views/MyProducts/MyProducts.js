@@ -18,6 +18,7 @@ import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 export default function MyProducts() {
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
+  const [order, setOrder] = useState("");
 
   function backToHomeHandler() {
     dispatch(ActiveView.actions.setView("Home"));
@@ -25,6 +26,10 @@ export default function MyProducts() {
 
   function getSearchQuery(query) {
     setQuery(query);
+  }
+
+  function liftOrderState(order) {
+    setOrder(order);
   }
 
   return (
@@ -47,9 +52,9 @@ export default function MyProducts() {
             parentLiftText={getSearchQuery}
           />
         </Nav>
-        <OrderBy></OrderBy>
+        <OrderBy liftOrderState={liftOrderState}></OrderBy>
 
-        <ListMyProducts query={query} />
+        <ListMyProducts order={order} query={query} />
       </MaxWidthContainer>
     </Background>
   );

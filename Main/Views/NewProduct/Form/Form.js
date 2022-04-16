@@ -147,7 +147,7 @@ export default function Form() {
             <CurrencySymbol>R$</CurrencySymbol>
             <InputStyled
               onChangeText={(e) => handleValidPrice(e)}
-              placeholder={"50"}
+              placeholder={"0"}
             ></InputStyled>
           </InputContainer>
           {!data.isValidPrice && (

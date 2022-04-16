@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 
 import Container from "../../../Reusables/Containers/Container";
@@ -6,8 +6,12 @@ import { Font } from "../../../Defaults/Font";
 import { Color } from "../../../Defaults/Color";
 import OrderButton from "./OrderButton";
 
-export default function OrderBy() {
+export default function OrderBy({ liftOrderState }) {
   const [selected, setSelected] = useState("");
+
+  useEffect(() => {
+    liftOrderState(selected);
+  }, [selected]);
 
   return (
     <Wrapper>
@@ -15,8 +19,8 @@ export default function OrderBy() {
         <InnerWrapper>
           <TextItem>Ordenar: </TextItem>
           <OrderButton
-            onPress={() => setSelected("data")}
-            selected={selected === "data"}
+            onPress={() => setSelected("date")}
+            selected={selected === "date"}
           >
             Data
           </OrderButton>
@@ -27,8 +31,8 @@ export default function OrderBy() {
             Preço
           </OrderButton>
           <OrderButton
-            onPress={() => setSelected("name")}
-            selected={selected === "name"}
+            onPress={() => setSelected("title")}
+            selected={selected === "title"}
           >
             Nome
           </OrderButton>

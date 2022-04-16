@@ -6,14 +6,30 @@ import { useSelector } from "react-redux";
 import NewProductButton from "../NewProductButton";
 import { useWindowDimensions } from "react-native";
 
-export default function ListMyProducts({ query }) {
+export default function ListMyProducts({ order, query }) {
   const width = useWindowDimensions().width;
   const userProducts = useSelector((state) => state.UserProducts.products);
   const [searchResults, setSearchResults] = useState(false);
 
-  function searchProducts(query) {
+  function orderProducts() {
+    const orderedProducts = [...userProducts].sort((a, b) => {
+      switch (order) {
+        case "date":
+          return a;
+        case "price":
+          return a.price < b.price;
+        case "title":
+          return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        case "amount":
+          return a.amount < b.amount;
+        case "totalValue":
+          return a.totalValue < b.totalValue;
+        default:
+          return a;
+      }
+    });
     setSearchResults(
-      userProducts.filter((product) => {
+      orderedProducts.filter((product) => {
         if (product.title.toLowerCase().includes(query.toLowerCase())) {
           return true;
         } else {
@@ -22,9 +38,10 @@ export default function ListMyProducts({ query }) {
       })
     );
   }
+
   useEffect(() => {
-    searchProducts(query);
-  }, [userProducts, query]);
+    orderProducts();
+  }, [userProducts, query, order]);
 
   if (!userProducts) return;
 
@@ -42,6 +59,7 @@ export default function ListMyProducts({ query }) {
 
   return (
     <FlatListStyled
+      enableResetScrollToCoords={false}
       ListHeaderComponent={!query ? NewProductButton : null}
       data={searchResults ? searchResults : userProducts}
       renderItem={({ item }) => {
