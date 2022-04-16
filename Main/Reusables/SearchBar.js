@@ -5,7 +5,7 @@ import { Color } from "../Defaults/Color";
 import Icon from "react-native-vector-icons/Feather";
 import { Font } from "../Defaults/Font";
 
-export default function SearchBar({ parentLiftText }) {
+export default function SearchBar({ parentLiftText, placeholder }) {
   const [text, setText] = useState("");
 
   function liftTextStateUp(query) {
@@ -19,7 +19,7 @@ export default function SearchBar({ parentLiftText }) {
       <Input
         onChangeText={(query) => liftTextStateUp(query)}
         value={text}
-        placeholder="Busque produtos"
+        placeholder={placeholder}
       ></Input>
     </SearchView>
   );

@@ -5,11 +5,10 @@ import { Font } from "../../Defaults/Font";
 import { Border } from "../../Defaults/Border";
 import Background from "../../Reusables/Background/Background";
 import FilledButton from "../../Reusables/WideButtons/FilledButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import FormHeader from "../NewProduct/Form/FormHeader";
 import { UserConfig } from "../../Store/UserConfig";
-import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 import KeyboardAvoidingWrapper from "../../Reusables/KeyboardAvoidingWrapper";
 
 export default function Exit() {

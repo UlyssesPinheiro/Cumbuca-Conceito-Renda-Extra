@@ -15,8 +15,6 @@ export default function NewPhoto({ addNewPhoto }) {
       quality: 1,
     });
 
-    console.log("pickImage Log:", result);
-
     if (!result.cancelled && addNewPhoto) {
       addNewPhoto(result.uri);
     }

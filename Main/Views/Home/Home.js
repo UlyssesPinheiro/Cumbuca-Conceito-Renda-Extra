@@ -11,7 +11,7 @@ import Logo from "../../Reusables/Logo/Logo";
 import { Color } from "../../Defaults/Color";
 import SearchBar from "../../Reusables/SearchBar";
 import ListOtherProducts from "./ListOtherProducts/ListOtherProducts";
-import Container from "../../Reusables/Container";
+import Container from "../../Reusables/Containers/Container";
 import WelcomeUser from "./WelcomeUser";
 import NewProduct from "./NewProduct";
 import MayAlsoLike from "./MayAlsoLike";
@@ -74,7 +74,10 @@ export default function Home() {
             <Logo />
           </TopView>
           {!MenuExpanded ? (
-            <SearchBar parentLiftText={searchQuery} />
+            <SearchBar
+              placeholder="Busque produtos"
+              parentLiftText={searchQuery}
+            />
           ) : (
             <MenuList />
           )}

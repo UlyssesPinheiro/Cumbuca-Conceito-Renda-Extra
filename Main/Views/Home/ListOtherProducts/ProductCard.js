@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Border } from "../../../Defaults/Border";
 import { Color } from "../../../Defaults/Color";
-import Container from "../../../Reusables/Container";
+import Container from "../../../Reusables/Containers/Container";
 import {
   ProductBoldText,
   ProductName,

@@ -1,6 +1,5 @@
 import React from "react";
-import ContainerStyled from "../../Reusables/ContainerStyled";
-import { TouchableOpacity } from "react-native";
+import Container from "../../Reusables/Containers/Container";
 import { useDispatch } from "react-redux";
 import styled from "styled-components/native";
 import { Font } from "../../Defaults/Font";
@@ -24,12 +23,12 @@ export default function NewProductButton() {
 
   return (
     <NewProductView onPress={AddProductHandler}>
-      <ContainerStyled>
+      <ContainerCustom>
         <TitleView>
           <IconSquare name="plus"></IconSquare>
           <Title>Anunciar novo</Title>
         </TitleView>
-      </ContainerStyled>
+      </ContainerCustom>
     </NewProductView>
   );
 }
@@ -45,4 +44,10 @@ const Title = styled.Text`
   font-size: ${Font.sizes[5] + "px"};
   font-family: ${Font.family.bold};
   color: ${Color.gray7};
+`;
+
+const ContainerCustom = styled(Container)`
+  margin-bottom: 15px;
+  margin-left: 15px;
+  padding: 20px 15px;
 `;

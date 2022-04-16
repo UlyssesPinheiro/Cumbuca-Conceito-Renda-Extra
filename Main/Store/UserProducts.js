@@ -30,8 +30,6 @@ export const UserProducts = createSlice({
       }
       const productWithKey = { ...action.payload, id };
       state.products.push(productWithKey);
-
-      console.log(state);
     },
 
     editProductAmount(state, action) {
@@ -42,7 +40,6 @@ export const UserProducts = createSlice({
           item.amount =
             Number(item.amount) + Number(action.payload.plusOrMinus);
           if (item.amount <= 0) {
-            console.log("Remove item");
             itemToRemove = item.id;
           }
           return item;
@@ -63,9 +60,6 @@ export const UserProducts = createSlice({
       if (state.products.length === 0) {
         state.openIds = [];
       }
-
-      console.log(state.openIds);
-      console.log(state.products);
     },
 
     removeProduct(state, action) {

@@ -9,7 +9,7 @@ import MaxWidthContainer from "./MaxWidthContainer";
 
 export default function KeyboardAvoidingWrapper({ children }) {
   return (
-    <KeyboardAvoidingView style={{ flex: 1 }}>
+    <KeyboardAvoidingView style={{ width: "100%", flex: 1 }}>
       <ScrollView>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <MaxWidthContainer>{children}</MaxWidthContainer>

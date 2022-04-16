@@ -6,7 +6,7 @@ import { Border } from "../../../Defaults/Border";
 import { Color } from "../../../Defaults/Color";
 import { Font } from "../../../Defaults/Font";
 import { UserProducts } from "../../../Store/UserProducts";
-import Container from "../../../Reusables/Container";
+import Container from "../../../Reusables/Containers/Container";
 import {
   ProductBoldText,
   ProductName,

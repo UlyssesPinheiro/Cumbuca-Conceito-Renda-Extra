@@ -9,9 +9,11 @@ import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import TitleNav from "../../Reusables/Nav/TitleNav";
 import Logo from "../../Reusables/Logo/Logo";
 import SearchBar from "../../Reusables/SearchBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import ListMyProducts from "./ListMyProducts/ListMyProducts";
+import OrderBy from "./OrderBy/OrderBy";
+import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
 
 export default function MyProducts() {
   const dispatch = useDispatch();
@@ -27,22 +29,28 @@ export default function MyProducts() {
 
   return (
     <Background>
-      <Nav>
-        <TopView>
-          <IconContainer onPress={backToHomeHandler}>
-            <FontAwesome
-              name="angle-left"
-              size={35}
-              color={Color.black}
-            ></FontAwesome>
-          </IconContainer>
-          <TitleNav>Meus Produtos</TitleNav>
-          <Logo />
-        </TopView>
-        <SearchBar parentLiftText={getSearchQuery} />
-      </Nav>
+      <MaxWidthContainer>
+        <Nav>
+          <TopView>
+            <IconContainer onPress={backToHomeHandler}>
+              <FontAwesome
+                name="angle-left"
+                size={35}
+                color={Color.black}
+              ></FontAwesome>
+            </IconContainer>
+            <TitleNav>Meus Produtos</TitleNav>
+            <Logo />
+          </TopView>
+          <SearchBar
+            placeholder="Buscar pelo nome"
+            parentLiftText={getSearchQuery}
+          />
+        </Nav>
+        <OrderBy></OrderBy>
 
-      <ListMyProducts query={query} />
+        <ListMyProducts query={query} />
+      </MaxWidthContainer>
     </Background>
   );
 }

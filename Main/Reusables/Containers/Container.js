@@ -1,13 +1,15 @@
 import React from "react";
+import { Platform, StyleSheet } from "react-native";
 import styled from "styled-components/native";
-import { Border } from "../Defaults/Border";
-import { Color } from "../Defaults/Color";
-import { StyleSheet } from "react-native";
-import { BoxShadow } from "../Defaults/BoxShadow";
+import { Border } from "../../Defaults/Border";
+import { Color } from "../../Defaults/Color";
+import { BoxShadow } from "../../Defaults/BoxShadow";
 
 export default function Container({ children, style }) {
   return (
-    <ContainerStyled style={[style, styles.container]}>
+    <ContainerStyled
+      style={[Platform.OS === "android" ? styles.container : null, style]}
+    >
       {children}
     </ContainerStyled>
   );
@@ -22,6 +24,8 @@ const ContainerStyled = styled.View`
 
 const styles = StyleSheet.create({
   container: {
+    shadowColor: Color.black,
+    shadowRadius: 5,
     elevation: 3,
   },
 });

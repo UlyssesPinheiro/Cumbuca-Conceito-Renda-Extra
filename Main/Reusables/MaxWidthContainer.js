@@ -10,4 +10,6 @@ const MaxWidth = styled.View`
   max-width: 800px;
   align-items: center;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 `;

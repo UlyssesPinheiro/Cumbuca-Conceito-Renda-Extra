@@ -32,17 +32,19 @@ export default function NewProduct() {
   return (
     <Background>
       <KeyboardAvoidingWrapper>
-        <NavUncontained>
-          <IconContainerSty onPress={goBackHandler}>
-            <FontAwesome
-              name="angle-left"
-              size={35}
-              color={Color.black}
-            ></FontAwesome>
-          </IconContainerSty>
-          <TitleNav>Anunciar Produto</TitleNav>
-        </NavUncontained>
-        <Form />
+        <>
+          <NavUncontained>
+            <IconContainerSty onPress={goBackHandler}>
+              <FontAwesome
+                name="angle-left"
+                size={35}
+                color={Color.black}
+              ></FontAwesome>
+            </IconContainerSty>
+            <TitleNav>Anunciar Produto</TitleNav>
+          </NavUncontained>
+          <Form />
+        </>
       </KeyboardAvoidingWrapper>
     </Background>
   );
