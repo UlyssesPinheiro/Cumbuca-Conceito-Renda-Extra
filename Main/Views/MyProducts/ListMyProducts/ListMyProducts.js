@@ -11,6 +11,8 @@ export default function ListMyProducts({ order, query }) {
   const userProducts = useSelector((state) => state.UserProducts.products);
   const [searchResults, setSearchResults] = useState(false);
 
+  if (!userProducts) return;
+
   function orderProducts() {
     const orderedProducts = [...userProducts].sort((a, b) => {
       switch (order) {
@@ -43,15 +45,6 @@ export default function ListMyProducts({ order, query }) {
     orderProducts();
   }, [userProducts, query, order]);
 
-  if (!userProducts) return;
-
-  const FlatListStyled = styled.FlatList`
-    ${width < 800 ? "padding-right: 12px" : ""};
-    padding-top: 15px;
-    width: 100%;
-    max-width: 800px;
-  `;
-
   let numColumns = 1;
   if (width > 800) {
     numColumns = 2;
@@ -59,7 +52,9 @@ export default function ListMyProducts({ order, query }) {
 
   return (
     <FlatListStyled
-      enableResetScrollToCoords={false}
+      columnWrapperStyle={
+        numColumns > 1 ? { justifyContent: "space-between" } : ""
+      }
       ListHeaderComponent={!query ? NewProductButton : null}
       data={searchResults ? searchResults : userProducts}
       renderItem={({ item }) => {
@@ -80,3 +75,9 @@ export default function ListMyProducts({ order, query }) {
     />
   );
 }
+
+const FlatListStyled = styled.FlatList`
+  padding: 15px 15px 0;
+  width: 100%;
+  max-width: 800px;
+`;

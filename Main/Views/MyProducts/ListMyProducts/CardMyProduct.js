@@ -28,12 +28,11 @@ export default function CardMyProduct({ photo, name, price, amount, id }) {
   const CardView = styled(Container)`
     display: flex;
     flex-direction: row;
-    margin-bottom: 15px;
-    margin-left: 15px;
+    margin-top: 15px;
     overflow: hidden;
     ${width > 800
-      ? `width: 50%;
-    max-width: 375px;`
+      ? `width: 49%;
+`
       : ""}
   `;
 

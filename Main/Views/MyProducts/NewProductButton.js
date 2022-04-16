@@ -17,10 +17,6 @@ export default function NewProductButton() {
     dispatch(ActiveView.actions.setView("NewProduct"));
   }
 
-  const NewProductView = styled.TouchableOpacity`
-    ${width > 800 ? `width: 98%;` : `width: 100%;`}
-  `;
-
   return (
     <NewProductView onPress={AddProductHandler}>
       <ContainerCustom>
@@ -47,7 +43,9 @@ const Title = styled.Text`
 `;
 
 const ContainerCustom = styled(Container)`
-  margin-bottom: 15px;
-  margin-left: 15px;
   padding: 20px 15px;
+`;
+
+const NewProductView = styled.TouchableOpacity`
+  width: 100%;
 `;
