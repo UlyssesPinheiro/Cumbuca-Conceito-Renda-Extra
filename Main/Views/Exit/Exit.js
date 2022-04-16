@@ -10,6 +10,7 @@ import { ActiveView } from "../../Store/ActiveViews";
 import FormHeader from "../NewProduct/Form/FormHeader";
 import { UserConfig } from "../../Store/UserConfig";
 import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
+import KeyboardAvoidingWrapper from "../../Reusables/KeyboardAvoidingWrapper";
 
 export default function Exit() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function Exit() {
 
   return (
     <Background>
-      <MaxWidthContainer>
+      <KeyboardAvoidingWrapper>
         <CenterView>
           <LargeLogo
             resizeMode="contain"
@@ -41,7 +42,7 @@ export default function Exit() {
           </InputContainer>
         </FormItem>
         <FilledButton onPress={loginHandler}>Entrar</FilledButton>
-      </MaxWidthContainer>
+      </KeyboardAvoidingWrapper>
     </Background>
   );
 }

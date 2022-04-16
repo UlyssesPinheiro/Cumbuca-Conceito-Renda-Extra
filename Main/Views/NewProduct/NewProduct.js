@@ -9,7 +9,7 @@ import { IconContainer } from "../../Reusables/Nav/IconContainer";
 import { useDispatch } from "react-redux";
 import { ActiveView } from "../../Store/ActiveViews";
 import { useWindowDimensions } from "react-native";
-import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
+import KeyboardAvoidingWrapper from "../../Reusables/KeyboardAvoidingWrapper";
 
 export default function NewProduct() {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export default function NewProduct() {
 
   return (
     <Background>
-      <MaxWidthContainer>
+      <KeyboardAvoidingWrapper>
         <NavUncontained>
           <IconContainerSty onPress={goBackHandler}>
             <FontAwesome
@@ -43,7 +43,7 @@ export default function NewProduct() {
           <TitleNav>Anunciar Produto</TitleNav>
         </NavUncontained>
         <Form />
-      </MaxWidthContainer>
+      </KeyboardAvoidingWrapper>
     </Background>
   );
 }

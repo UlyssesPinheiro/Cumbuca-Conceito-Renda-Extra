@@ -14,7 +14,7 @@ export default function ListMyProducts({ query }) {
   function searchProducts(query) {
     setSearchResults(
       userProducts.filter((product) => {
-        if (product.title.includes(query)) {
+        if (product.title.toLowerCase().includes(query.toLowerCase())) {
           return true;
         } else {
           return false;
