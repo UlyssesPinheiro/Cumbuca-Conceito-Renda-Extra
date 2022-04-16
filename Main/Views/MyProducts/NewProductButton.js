@@ -48,4 +48,5 @@ const ContainerCustom = styled(Container)`
 
 const NewProductView = styled.TouchableOpacity`
   width: 100%;
+  margin-bottom: 15px;
 `;

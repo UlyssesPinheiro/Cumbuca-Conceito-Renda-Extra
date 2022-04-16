@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import NewProductButton from "../NewProductButton";
 import { useWindowDimensions } from "react-native";
 
-export default function ListMyProducts({ order, query }) {
+export default function ListMyProducts({ order, query, showModal }) {
   const width = useWindowDimensions().width;
   const userProducts = useSelector((state) => state.UserProducts.products);
   const [searchResults, setSearchResults] = useState(false);
@@ -60,6 +60,7 @@ export default function ListMyProducts({ order, query }) {
       renderItem={({ item }) => {
         return (
           <CardMyProduct
+            showModal={showModal}
             photo={item.photos ? item.photos[0] : ""}
             name={
               item.title.substring(0, 35) +
@@ -77,7 +78,7 @@ export default function ListMyProducts({ order, query }) {
 }
 
 const FlatListStyled = styled.FlatList`
-  padding: 15px 15px 0;
+  padding: 15px;
   width: 100%;
   max-width: 800px;
 `;

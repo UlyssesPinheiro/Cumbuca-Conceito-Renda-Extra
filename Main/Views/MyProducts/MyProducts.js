@@ -14,11 +14,16 @@ import { ActiveView } from "../../Store/ActiveViews";
 import ListMyProducts from "./ListMyProducts/ListMyProducts";
 import OrderBy from "./OrderBy/OrderBy";
 import MaxWidthContainer from "../../Reusables/MaxWidthContainer";
+import Modal from "../../Reusables/Modal/Modal";
+import { UserProducts } from "../../Store/UserProducts";
 
 export default function MyProducts() {
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
   const [order, setOrder] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [comfirmDeleteID, setComfirmDeleteID] = useState(null);
 
   function backToHomeHandler() {
     dispatch(ActiveView.actions.setView("Home"));
@@ -32,8 +37,39 @@ export default function MyProducts() {
     setOrder(order);
   }
 
+  function closeModal() {
+    setModalOpen(false);
+  }
+  function openModal(action, id) {
+    if (action === "onZeroUnids") {
+      setModalMessage(
+        "Ao definir o estoque como 0, o produto será apagado, confirmar?"
+      );
+    }
+    if (action === "onDelete") {
+      setModalMessage("Deseja realmente apagar este produto?");
+    }
+    setComfirmDeleteID(id);
+
+    setModalOpen(true);
+  }
+  function confimDelete() {
+    dispatch(UserProducts.actions.removeProduct(comfirmDeleteID));
+    setModalOpen(false);
+  }
+
+  const functionActions = {
+    closeModal,
+    confimDelete,
+  };
+
   return (
     <Background>
+      <Modal
+        message={modalMessage}
+        parentFunctions={functionActions}
+        visible={modalOpen}
+      ></Modal>
       <MaxWidthContainer>
         <Nav>
           <TopView>
@@ -54,7 +90,7 @@ export default function MyProducts() {
         </Nav>
         <OrderBy liftOrderState={liftOrderState}></OrderBy>
 
-        <ListMyProducts order={order} query={query} />
+        <ListMyProducts showModal={openModal} order={order} query={query} />
       </MaxWidthContainer>
     </Background>
   );

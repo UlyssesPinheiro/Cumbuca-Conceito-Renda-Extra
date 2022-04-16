@@ -13,7 +13,14 @@ import {
 } from "../../../Reusables/ProductLists/BoldTextAndName";
 import { useWindowDimensions } from "react-native";
 
-export default function CardMyProduct({ photo, name, price, amount, id }) {
+export default function CardMyProduct({
+  showModal,
+  photo,
+  name,
+  price,
+  amount,
+  id,
+}) {
   const dispatch = useDispatch();
   const width = useWindowDimensions().width;
 
@@ -22,13 +29,21 @@ export default function CardMyProduct({ photo, name, price, amount, id }) {
   }
 
   function deleteProduct() {
-    dispatch(UserProducts.actions.removeProduct(id));
+    showModal("onDelete", id);
+  }
+
+  function editProductAmountHandler({ plusOrMinus, id }) {
+    if (amount === 1 && plusOrMinus === -1) {
+      showModal("onZeroUnids", id);
+      return;
+    }
+    editProductAmount({ plusOrMinus: plusOrMinus, id });
   }
 
   const CardView = styled(Container)`
     display: flex;
     flex-direction: row;
-    margin-top: 15px;
+    margin-bottom: 15px;
     overflow: hidden;
     ${width > 800
       ? `width: 49%;
@@ -50,12 +65,12 @@ export default function CardMyProduct({ photo, name, price, amount, id }) {
         <AmountView>
           <AmountText>{amount} un.</AmountText>
           <AddSubtractBtn
-            onPress={() => editProductAmount({ plusOrMinus: -1, id })}
+            onPress={() => editProductAmountHandler({ plusOrMinus: -1, id })}
           >
             <BtnTxt>-</BtnTxt>
           </AddSubtractBtn>
           <AddSubtractBtn
-            onPress={() => editProductAmount({ plusOrMinus: 1, id })}
+            onPress={() => editProductAmountHandler({ plusOrMinus: 1, id })}
           >
             <BtnTxt>+</BtnTxt>
           </AddSubtractBtn>
