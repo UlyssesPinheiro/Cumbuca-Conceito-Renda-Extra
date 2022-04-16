@@ -52,6 +52,8 @@ export const UserProducts = createSlice({
         if (item.id === action.payload.id) {
           item.amount =
             Number(item.amount) + Number(action.payload.plusOrMinus);
+          item.totalValue = item.amount * item.price;
+
           if (item.amount <= 0) {
             itemToRemove = item.id;
           }

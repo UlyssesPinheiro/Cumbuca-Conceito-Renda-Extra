@@ -68,6 +68,7 @@ export default function ListMyProducts({ order, query, showModal }) {
             }
             price={Number(item.price)}
             amount={item.amount}
+            totalValue={item.totalValue}
             id={item.id}
           ></CardMyProduct>
         );

@@ -19,6 +19,7 @@ export default function CardMyProduct({
   name,
   price,
   amount,
+  totalValue,
   id,
 }) {
   const dispatch = useDispatch();
@@ -75,9 +76,7 @@ export default function CardMyProduct({
             <BtnTxt>+</BtnTxt>
           </AddSubtractBtn>
         </AmountView>
-        <BoldTitleMargTop>
-          Valor Total: {`R$ ${price * amount}`}
-        </BoldTitleMargTop>
+        <BoldTitleMargTop>Valor Total: {`R$ ${totalValue}`}</BoldTitleMargTop>
       </TextView>
     </CardView>
   );
