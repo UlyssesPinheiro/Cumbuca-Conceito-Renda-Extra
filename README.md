@@ -4,8 +4,8 @@ Conceito como uma extensão do app Cumbuca. Permite anunciar produtos e serviço
 
 ## Acesse o app
 Acesse o app pelo link:
-(Baixe o app Expo Go e escaneie o código QR)
 https://expo.dev/@ulyssespinheiro/CumbucaRendaExtra 
+(Baixe o app Expo Go e escaneie o código QR)
 
 ## Desenvolvimento das telas no Figma
 https://www.figma.com/file/jjt2gZZpDbDYbEdxUTezV2/Untitled?node-id=0%3A1
