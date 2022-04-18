@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // {
-//   "amount": 7,
+//   "amount": 1,
 //   "description": "string",
 //   "id": 1,
 //   "photos": Array [],

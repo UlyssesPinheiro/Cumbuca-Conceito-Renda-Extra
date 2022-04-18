@@ -5,9 +5,6 @@ const MaxWidthContainer = forwardRef(({ children }, ref) => {
   return <MaxWidth>{children}</MaxWidth>;
 });
 
-// export default function MaxWidthContainer({ children }) {
-//   return <MaxWidth>{children}</MaxWidth>;
-// }
 export default MaxWidthContainer;
 
 const MaxWidth = styled.View`
@@ -18,5 +15,3 @@ const MaxWidth = styled.View`
   margin-left: auto;
   margin-right: auto;
 `;
-
-// forwardRef((props, ref)

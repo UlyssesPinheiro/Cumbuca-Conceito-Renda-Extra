@@ -8,6 +8,5 @@ export default function Nav({ children }) {
 
 const ContainerStyled = styled(Container)`
   width: 100%;
-  /* max-width: 800px; */
   padding: 40px 20px 20px;
 `;
