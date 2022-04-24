@@ -17,7 +17,7 @@ This app was developed as an extension of the existing Cumbuca app (which allows
 ## App access
 The app is available at the following link:
 https://expo.dev/@ulyssespinheiro/CumbucaRendaExtra 
-Download the app "Expo Go" in Playstore (Android) or Appstore (IOS) and scan the QR code.
+Download the app "Expo Go" and scan the QR code.
 
 ## Screens design developed with Figma
 https://www.figma.com/file/jjt2gZZpDbDYbEdxUTezV2/Untitled?node-id=0%3A1
