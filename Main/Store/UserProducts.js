@@ -46,6 +46,7 @@ export const UserProducts = createSlice({
     },
 
     editProductAmount(state, action) {
+      console.log(state.products);
       let itemToRemove = undefined;
 
       state.products = state.products.map((item) => {
