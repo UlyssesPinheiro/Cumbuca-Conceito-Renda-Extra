@@ -5,7 +5,7 @@ export const UserConfig = createSlice({
   initialState: {
     hiddenBalance: false,
     userIsLoggedIn: false,
-    userName: "Usuário",
+    userName: "User",
   },
   reducers: {
     toggleHiddenBalance(state) {
@@ -23,7 +23,7 @@ export const UserConfig = createSlice({
     },
     clearUserName(state) {
       state.userIsLoggedIn = false;
-      state.userName = "Usuário";
+      state.userName = "User";
     },
   },
 });

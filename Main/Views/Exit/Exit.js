@@ -29,18 +29,18 @@ export default function Exit() {
             resizeMode="contain"
             source={require("../../Reusables/Logo/logo.png")}
           ></LargeLogo>
-          <HeaderWelcome>Bem vindo ao Cumbuca Renda Extra</HeaderWelcome>
+          <HeaderWelcome>Welcome to Incomefy</HeaderWelcome>
           <SubHeader>
-            Venda produtos ou serviços para ganhar uma renda extra
+            Sell products or services to make some extra income
           </SubHeader>
         </CenterView>
         <FormItem>
-          <FormHeader>Qual o seu nome?</FormHeader>
+          <FormHeader>What is your name?</FormHeader>
           <InputContainer>
             <InputStyled onChangeText={(e) => setName(e)}></InputStyled>
           </InputContainer>
         </FormItem>
-        <FilledButton onPress={loginHandler}>Entrar</FilledButton>
+        <FilledButton onPress={loginHandler}>Login</FilledButton>
       </KeyboardAvoidingWrapper>
     </Background>
   );

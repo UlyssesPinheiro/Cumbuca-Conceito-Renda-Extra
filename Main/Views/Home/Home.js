@@ -70,12 +70,12 @@ export default function Home() {
             <IconContainer onPress={MenuExpandedHandler}>
               {IconShown}
             </IconContainer>
-            <TitleNav>Renda Extra</TitleNav>
+            <TitleNav>Incomefy</TitleNav>
             <Logo />
           </TopView>
           {!MenuExpanded ? (
             <SearchBar
-              placeholder="Busque produtos"
+              placeholder="Search for products"
               parentLiftText={searchQuery}
             />
           ) : (

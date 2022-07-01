@@ -6,7 +6,7 @@ import { Margins } from "../../Defaults/Margins";
 export default function MayAlsoLike() {
   return (
     <ViewStyled>
-      <Title>Podem te interessar</Title>
+      <Title>May interest you</Title>
     </ViewStyled>
   );
 }

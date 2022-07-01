@@ -80,11 +80,11 @@ export default function MyProducts() {
                 color={Color.black}
               ></FontAwesome>
             </IconContainer>
-            <TitleNav>Meus Produtos</TitleNav>
+            <TitleNav>My Products</TitleNav>
             <Logo />
           </TopView>
           <SearchBar
-            placeholder="Buscar pelo nome"
+            placeholder="Search by name"
             parentLiftText={getSearchQuery}
           />
         </Nav>

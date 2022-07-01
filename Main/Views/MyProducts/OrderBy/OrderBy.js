@@ -17,36 +17,36 @@ export default function OrderBy({ liftOrderState }) {
     <Wrapper>
       <ContainerCustom>
         <InnerWrapper>
-          <TextItem>Ordenar: </TextItem>
+          <TextItem>Order by: </TextItem>
           <OrderButton
             onPress={() => setSelected("date")}
             selected={selected === "date"}
           >
-            Data
+            Date
           </OrderButton>
           <OrderButton
             onPress={() => setSelected("price")}
             selected={selected === "price"}
           >
-            Preço
+            Price
           </OrderButton>
           <OrderButton
             onPress={() => setSelected("title")}
             selected={selected === "title"}
           >
-            Nome
+            Title
           </OrderButton>
           <OrderButton
             onPress={() => setSelected("amount")}
             selected={selected === "amount"}
           >
-            Quant.
+            Amount
           </OrderButton>
           <OrderButton
             onPress={() => setSelected("totalValue")}
             selected={selected === "totalValue"}
           >
-            Valor T.
+            Tot Val.
           </OrderButton>
         </InnerWrapper>
       </ContainerCustom>

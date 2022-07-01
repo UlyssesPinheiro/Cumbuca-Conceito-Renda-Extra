@@ -22,7 +22,7 @@ export default function NewProductButton() {
       <ContainerCustom>
         <TitleView>
           <IconSquare name="plus"></IconSquare>
-          <Title>Anunciar novo</Title>
+          <Title>Create listing</Title>
         </TitleView>
       </ContainerCustom>
     </NewProductView>

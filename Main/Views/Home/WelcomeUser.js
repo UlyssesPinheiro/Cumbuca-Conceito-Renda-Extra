@@ -23,11 +23,11 @@ export default function WelcomeUser() {
         <UserProfile>
           <UserName>{userName.toUpperCase().trim().substring(0, 2)}</UserName>
         </UserProfile>
-        <WelcomeTitle>Olá, {userName}</WelcomeTitle>
+        <WelcomeTitle>Hi, {userName}</WelcomeTitle>
       </TitleView>
       <SalesView>
         <SalesTitleView>
-          <SalesTitle>Saldo das vendas</SalesTitle>
+          <SalesTitle>Sales Balance</SalesTitle>
           <IconContainer onPress={toggleHideBalanceHandler}>
             <Icon
               name={hidennBalance ? "eye-off" : "eye"}
@@ -36,7 +36,7 @@ export default function WelcomeUser() {
             />
           </IconContainer>
         </SalesTitleView>
-        <SalesBalance>{hidennBalance ? "••••" : "R$ 150,00"}</SalesBalance>
+        <SalesBalance>{hidennBalance ? "••••" : "$ 150,00"}</SalesBalance>
       </SalesView>
     </>
   );

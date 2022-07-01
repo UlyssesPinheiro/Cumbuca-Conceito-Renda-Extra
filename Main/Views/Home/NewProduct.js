@@ -9,10 +9,10 @@ export default function NewProduct() {
     <>
       <TitleView>
         <IconSquare name="plus"></IconSquare>
-        <Title>Anunciar novo</Title>
+        <Title>Create listing</Title>
       </TitleView>
       <Description>
-        Anuncie um produto ou serviço agora e ganhe um dinheiro extra
+        List a product or a service now and make some extra income
       </Description>
     </>
   );

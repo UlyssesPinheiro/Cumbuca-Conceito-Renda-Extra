@@ -24,11 +24,11 @@ export default function MenuList() {
     <ListView>
       <ListItem onPress={goToMyProducts}>
         <IconSquare name="user" />
-        <ListText>Meus Produtos</ListText>
+        <ListText>My Products</ListText>
       </ListItem>
       <ListItem onPress={exit}>
         <IconSquare name="log-out" />
-        <ListText>Sair</ListText>
+        <ListText>Exit</ListText>
       </ListItem>
     </ListView>
   );
