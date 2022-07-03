@@ -127,7 +127,7 @@ export default function Form() {
             ></InputStyled>
           </InputContainer>
           {!data.isValidName && (
-            <ErrorText>Title must have least 5 letters.</ErrorText>
+            <ErrorText>Title must have at least 5 letters.</ErrorText>
           )}
         </FormItem>
 

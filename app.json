@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Cumbuca Renda Extra",
-    "slug": "CumbucaRendaExtra",
+    "name": "Incomefy - Sell products and services",
+    "slug": "incomefy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -36,6 +36,6 @@
         }
       ]
     ],
-    "description": "Conceito como uma extensão do app Cumbuca. Permite anunciar produtos e serviços para ganhar um dinheiro extra. Pesquise produtos já existentes na plataforma e também na lista de seus próprios anúncios."
+    "description": "This concept app allows users to sell their used goods online, and offer services. They can search for products already on the platform or in their own product list. "
   }
 }
