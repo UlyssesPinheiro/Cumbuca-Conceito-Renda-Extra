@@ -23,16 +23,16 @@ export default function PopUpMessage({ message, parentFunctions }) {
           <IconContainerCustom onPress={cancelHandler}>
             <Feather name="x" size={25} color={Color.black}></Feather>
           </IconContainerCustom>
-          <MessageTitle>Apagar Produto?</MessageTitle>
+          <MessageTitle>Delete listing?</MessageTitle>
           <MessageBody>{message}</MessageBody>
           <Buttons>
             <ButtonTouchableOpacity onPress={cancelHandler}>
               <Feather name="x" size={25} color={Color.black}></Feather>
-              <ButtonText>Cancelar</ButtonText>
+              <ButtonText>Cancel</ButtonText>
             </ButtonTouchableOpacity>
             <ButtonTouchableOpacity onPress={deleteHandler}>
               <Feather name="check" size={25} color={Color.black}></Feather>
-              <ButtonText>Apagar</ButtonText>
+              <ButtonText>Delete</ButtonText>
             </ButtonTouchableOpacity>
           </Buttons>
         </ContainerCustom>

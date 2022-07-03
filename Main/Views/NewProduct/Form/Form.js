@@ -108,7 +108,7 @@ export default function Form() {
     <>
       <ViewStyled>
         <FormItem>
-          <FormHeader>Fotos</FormHeader>
+          <FormHeader>Photos</FormHeader>
 
           <Photos horizontal={true}>
             {photos.map((item) => (
@@ -119,44 +119,42 @@ export default function Form() {
         </FormItem>
 
         <FormItem>
-          <FormHeader>Nome do produto</FormHeader>
+          <FormHeader>Product Title</FormHeader>
           <InputContainer>
             <InputStyled
               onChangeText={(e) => handleValidName(e)}
-              placeholder={"Preencher nome"}
+              placeholder={"Fill title"}
             ></InputStyled>
           </InputContainer>
           {!data.isValidName && (
-            <ErrorText>Nome deve ter pelo menos 5 letras.</ErrorText>
+            <ErrorText>Title must have least 5 letters.</ErrorText>
           )}
         </FormItem>
 
         <FormItem>
-          <FormHeader>Descrição</FormHeader>
+          <FormHeader>Description</FormHeader>
           <InputContainer>
             <InputStyled
               onChangeText={(e) => handleValidDescription(e)}
-              placeholder={"Descrição Opcional"}
+              placeholder={"Description is optional"}
             ></InputStyled>
           </InputContainer>
         </FormItem>
 
         <FormItem>
-          <FormHeader>Preço</FormHeader>
+          <FormHeader>Price</FormHeader>
           <InputContainer>
-            <CurrencySymbol>R$</CurrencySymbol>
+            <CurrencySymbol>$</CurrencySymbol>
             <InputStyled
               onChangeText={(e) => handleValidPrice(e)}
               placeholder={"0"}
             ></InputStyled>
           </InputContainer>
-          {!data.isValidPrice && (
-            <ErrorText>Valor inteiro sem os centavos.</ErrorText>
-          )}
+          {!data.isValidPrice && <ErrorText>Number with no cents.</ErrorText>}
         </FormItem>
 
         <FormItem>
-          <FormHeader>Quantidade</FormHeader>
+          <FormHeader>Stock Amount</FormHeader>
           <InputContainer>
             <InputStyled
               onChangeText={(e) => handleValidAmount(e)}
@@ -164,11 +162,11 @@ export default function Form() {
             ></InputStyled>
           </InputContainer>
           {!data.isValidAmount && (
-            <ErrorText>A quantidade deve ser maior do que 0.</ErrorText>
+            <ErrorText>The amount must be greater than 0.</ErrorText>
           )}
         </FormItem>
       </ViewStyled>
-      <FilledButton onPress={onSubmitHandler}>Anunciar</FilledButton>
+      <FilledButton onPress={onSubmitHandler}>Publish</FilledButton>
     </>
   );
 }

@@ -43,11 +43,11 @@ export default function MyProducts() {
   function openModal(action, id) {
     if (action === "onZeroUnids") {
       setModalMessage(
-        "Ao definir o estoque como 0, o produto será apagado, confirmar?"
+        "By setting the stock as 0, the listing will be deleted, are you sure?"
       );
     }
     if (action === "onDelete") {
-      setModalMessage("Deseja realmente apagar este produto?");
+      setModalMessage("Do you really want to delete this listing?");
     }
     setComfirmDeleteID(id);
 

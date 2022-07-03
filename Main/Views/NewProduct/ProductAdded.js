@@ -53,14 +53,14 @@ export default function ProductAdded() {
             size={180}
             color={Color.iconAccent}
           />
-          <BoldText>Parabéns, seu anúncio foi criado com sucesso!</BoldText>
-          <ThinText>Em breve seu anúncio estará no ar</ThinText>
+          <BoldText>Congrats, your listing was successfully created!</BoldText>
+          <ThinText>It will be online shortly</ThinText>
         </CenterView>
         <ButtonsContainer>
           <FilledButtonStyled onPress={goToMyProducts}>
-            Ver meus anúncios
+            See my listings
           </FilledButtonStyled>
-          <LineButton onPress={goToNewProduct}>Anunciar outro</LineButton>
+          <LineButton onPress={goToNewProduct}>List another one</LineButton>
         </ButtonsContainer>
       </MaxWidthContainer>
     </Background>

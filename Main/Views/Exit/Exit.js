@@ -13,7 +13,7 @@ import KeyboardAvoidingWrapper from "../../Reusables/KeyboardAvoidingWrapper";
 
 export default function Exit() {
   const dispatch = useDispatch();
-  const [name, setName] = useState("Usuário");
+  const [name, setName] = useState("User");
 
   function loginHandler() {
     dispatch(ActiveView.actions.setView("Home"));

@@ -41,7 +41,7 @@ export default function NewProduct() {
                 color={Color.black}
               ></FontAwesome>
             </IconContainerSty>
-            <TitleNav>Anunciar Produto</TitleNav>
+            <TitleNav>New Listing</TitleNav>
           </NavUncontained>
           <Form />
         </>

@@ -60,11 +60,11 @@ export default function CardMyProduct({
       {photo && <ProductImage source={{ uri: photo }} />}
       {!photo && <ImageMissing />}
       <TextView>
-        <ProductBoldText>{`R$ ${price}`}</ProductBoldText>
+        <ProductBoldText>{`$ ${price}`}</ProductBoldText>
         <ProductName>{name}</ProductName>
-        <BoldTitleMargTop>Quantidade</BoldTitleMargTop>
+        <BoldTitleMargTop>In stock:</BoldTitleMargTop>
         <AmountView>
-          <AmountText>{amount} un.</AmountText>
+          <AmountText>{amount}</AmountText>
           <AddSubtractBtn
             onPress={() => editProductAmountHandler({ plusOrMinus: -1, id })}
           >
@@ -76,7 +76,7 @@ export default function CardMyProduct({
             <BtnTxt>+</BtnTxt>
           </AddSubtractBtn>
         </AmountView>
-        <BoldTitleMargTop>Valor Total: {`R$ ${totalValue}`}</BoldTitleMargTop>
+        <BoldTitleMargTop>Total value: {`$ ${totalValue}`}</BoldTitleMargTop>
       </TextView>
     </CardView>
   );
